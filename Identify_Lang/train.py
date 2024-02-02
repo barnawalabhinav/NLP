@@ -2,6 +2,7 @@ import pickle
 import pandas as pd
 import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+from sklearn.svm import SVC
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import Pipeline
 
@@ -13,21 +14,36 @@ def load_data(data_path):
     return df
 
 
-def naive_bayes_baseline(dataframe, model_path):
+def svm(dataframe, model_path):
     pipeline = Pipeline([
         # ('tfidf', TfidfVectorizer()),
         ('cntvec', CountVectorizer()),
-        ('mnb', MultinomialNB())
+        ('svc', SVC())
     ])
     pipeline.fit(dataframe['text'].values, dataframe['langid'].values)
     with open(model_path, 'wb') as f:
         pickle.dump(pipeline, f)
 
 
-def train(data_path, model_path):
+# TODO: Grid search for hyperparameters (alpha)
+def naive_bayes_baseline(dataframe, model_path):
+    pipeline = Pipeline([
+        # ('tfidf', TfidfVectorizer()),
+        ('cntvec', CountVectorizer()),
+        ('mnb', MultinomialNB(alpha=0.5))
+    ])
+    pipeline.fit(dataframe['text'].values, dataframe['langid'].values)
+    with open(model_path, 'wb') as f:
+        pickle.dump(pipeline, f)
+
+
+def train(data_path, model_path, model_type='naive_bayes'):
     df = load_data(data_path)
 
-    naive_bayes_baseline(df, model_path)
+    if model_type == 'naive_bayes':
+        naive_bayes_baseline(df, model_path)
+    elif model_type == 'svm':
+        svm(df, model_path)
 
     print('------------------ Training Done! ------------------')
 
@@ -49,5 +65,5 @@ def predict(data_path, model_path):
 
 
 if __name__ == '__main__':
-    train('data/train.json', 'models/model.pkl')
+    train('data/train.json', 'models/model.pkl', 'naive_bayes')
     predict('data/valid.json', 'models/model.pkl')
