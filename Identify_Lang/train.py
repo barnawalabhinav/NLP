@@ -1,7 +1,9 @@
+import sys
 import pickle
 import pandas as pd
 import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import Pipeline
@@ -25,12 +27,23 @@ def svm(dataframe, model_path):
         pickle.dump(pipeline, f)
 
 
-# TODO: Grid search for hyperparameters (alpha)
 def naive_bayes_baseline(dataframe, model_path):
     pipeline = Pipeline([
+        ('tfidf', TfidfVectorizer(ngram_range=(2, 2))),
         # ('tfidf', TfidfVectorizer()),
-        ('cntvec', CountVectorizer()),
-        ('mnb', MultinomialNB(alpha=0.5))
+        # ('cntvec', CountVectorizer()),
+        ('mnb', MultinomialNB(alpha=0.01))
+    ])
+    pipeline.fit(dataframe['text'].values, dataframe['langid'].values)
+    with open(model_path, 'wb') as f:
+        pickle.dump(pipeline, f)
+
+
+def logistic_regr_baseline(dataframe, model_path):
+    pipeline = Pipeline([
+        ('tfidf', TfidfVectorizer()),
+        # ('cntvec', CountVectorizer()),
+        ('log_regr', LogisticRegression(solver='saga', warm_start=True))
     ])
     pipeline.fit(dataframe['text'].values, dataframe['langid'].values)
     with open(model_path, 'wb') as f:
@@ -40,30 +53,27 @@ def naive_bayes_baseline(dataframe, model_path):
 def train(data_path, model_path, model_type='naive_bayes'):
     df = load_data(data_path)
 
+    # # Downsample the data
+    # for lang in ['bn', 'de', 'en', 'es', 'fr', 'hi', 'it', 'kn', 'ml', 'mr', 'pt', 'sv', 'ta']:
+    #     lang_indices = df[df.langid == lang].index
+    #     if len(lang_indices) > 160000:
+    #         random_indices = np.random.choice(lang_indices, 160000, replace=False)
+    #         drop_indices = lang_indices.difference(random_indices)
+    #         df = df.drop(index=drop_indices)
+
+
     if model_type == 'naive_bayes':
         naive_bayes_baseline(df, model_path)
     elif model_type == 'svm':
         svm(df, model_path)
+    elif model_type == 'logistic_regr':
+        logistic_regr_baseline(df, model_path)
 
     print('------------------ Training Done! ------------------')
 
 
-def predict(data_path, model_path):
-    df = load_data(data_path)
-
-    with open(model_path, 'rb') as f:
-        pipeline = pickle.load(f)
-    y_pred = pipeline.predict(df['text'].values)
-
-    y_true = df['langid'].values
-    micro_f1 = compute_micro_f1_score(y_pred, y_true)
-    macro_f1 = compute_macro_f1_score(y_pred, y_true)
-    accuracy = np.mean(y_pred == y_true)
-    print(f'Micro F1: {micro_f1}')
-    print(f'Macro F1: {macro_f1}')
-    print(f'Accuracy: {accuracy}')
-
-
 if __name__ == '__main__':
-    train('data/train.json', 'models/model.pkl', 'naive_bayes')
-    predict('data/valid.json', 'models/model.pkl')
+    model_path = sys.argv[1]
+    data_path = sys.argv[2]
+    train(data_path, model_path)
+    # train(data_path, model_path, 'logistic_regr')
