@@ -29,8 +29,8 @@ def svm(dataframe, model_path):
 
 def naive_bayes_baseline(dataframe, model_path):
     pipeline = Pipeline([
-        ('tfidf', TfidfVectorizer(ngram_range=(2, 2))),
-        # ('tfidf', TfidfVectorizer()),
+        # ('tfidf', TfidfVectorizer(ngram_range=(1, 2))),
+        ('tfidf', TfidfVectorizer()),
         # ('cntvec', CountVectorizer()),
         ('mnb', MultinomialNB(alpha=0.01))
     ])
