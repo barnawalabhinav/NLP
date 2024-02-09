@@ -1,12 +1,13 @@
 import sys
 import pickle
-import pandas as pd
 import numpy as np
-from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
-from sklearn.linear_model import LogisticRegression
+import pandas as pd
 from sklearn.svm import SVC
-from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import Pipeline
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 
 from evaluation import compute_macro_f1_score, compute_micro_f1_score
 
@@ -17,6 +18,7 @@ def load_data(data_path):
 
 
 def svm(dataframe, model_path):
+    print("------- Training SVM --------")
     pipeline = Pipeline([
         # ('tfidf', TfidfVectorizer()),
         ('cntvec', CountVectorizer()),
@@ -27,10 +29,11 @@ def svm(dataframe, model_path):
         pickle.dump(pipeline, f)
 
 
-def naive_bayes_baseline(dataframe, model_path):
+def naive_bayes(dataframe, model_path):
+    print("------- Training Naive Bayes --------")
     pipeline = Pipeline([
-        # ('tfidf', TfidfVectorizer(ngram_range=(1, 2))),
-        ('tfidf', TfidfVectorizer()),
+        ('tfidf', TfidfVectorizer(ngram_range=(1, 2))),
+        # ('tfidf', TfidfVectorizer()),
         # ('cntvec', CountVectorizer()),
         ('mnb', MultinomialNB(alpha=0.01))
     ])
@@ -39,11 +42,28 @@ def naive_bayes_baseline(dataframe, model_path):
         pickle.dump(pipeline, f)
 
 
-def logistic_regr_baseline(dataframe, model_path):
+def logistic_regr(dataframe, model_path):
+    print("------- Training Logistic Regression --------")
     pipeline = Pipeline([
         ('tfidf', TfidfVectorizer()),
         # ('cntvec', CountVectorizer()),
-        ('log_regr', LogisticRegression(solver='saga', warm_start=True))
+        ('log_regr', LogisticRegression(penalty='elasticnet', l1_ratio=0.5,
+         solver='saga', warm_start=True, multi_class='multinomial'))
+    ])
+    pipeline.fit(dataframe['text'].values, dataframe['langid'].values)
+    with open(model_path, 'wb') as f:
+        pickle.dump(pipeline, f)
+
+
+def random_forest(dataframe, model_path):
+    print("------- Training Random Forest --------")
+    pipeline = Pipeline([
+        ('tfidf', TfidfVectorizer()),
+        # ('cntvec', CountVectorizer()),
+        # ('random_forest', RandomForestClassifier(
+        #     n_estimators=10, criterion='entropy', random_state=42))
+        ('random_forest', RandomForestClassifier(
+            n_estimators=100, max_depth=100, class_weight='balanced', criterion='gini', random_state=0))
     ])
     pipeline.fit(dataframe['text'].values, dataframe['langid'].values)
     with open(model_path, 'wb') as f:
@@ -61,13 +81,14 @@ def train(data_path, model_path, model_type='naive_bayes'):
     #         drop_indices = lang_indices.difference(random_indices)
     #         df = df.drop(index=drop_indices)
 
-
     if model_type == 'naive_bayes':
-        naive_bayes_baseline(df, model_path)
+        naive_bayes(df, model_path)
     elif model_type == 'svm':
         svm(df, model_path)
     elif model_type == 'logistic_regr':
-        logistic_regr_baseline(df, model_path)
+        logistic_regr(df, model_path)
+    elif model_type == 'random_forest':
+        random_forest(df, model_path)
 
     print('------------------ Training Done! ------------------')
 
@@ -75,5 +96,8 @@ def train(data_path, model_path, model_type='naive_bayes'):
 if __name__ == '__main__':
     model_path = sys.argv[1]
     data_path = sys.argv[2]
-    train(data_path, model_path)
-    # train(data_path, model_path, 'logistic_regr')
+    if len(sys.argv) > 3:
+        model_type = sys.argv[3]
+        train(data_path, model_path, model_type)
+    else:
+        train(data_path, model_path)
