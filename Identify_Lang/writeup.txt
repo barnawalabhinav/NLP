@@ -1,0 +1,10 @@
+Author: Abhinav Barnawal (2020CS50415)
+
+EXPERIMENTATION
+I have tried and tested the performance of Logistic Regression, SVM, Random Forest and Naive Bayes. Logistic Regression performs decently well, however naive bayes gives similar or better performance with less training time. Random Forest needs huge time to train if the number of trees is greater than 100 or max depth > 100. Further, it could only achieve upto 77% accuracy on the validation set 'valid.json'. SVM too needs a lot of time to train if max_iterations is not limited and limiting it decreases its performance significantly making it a poor competitor of naive bayes in this case.
+
+BEST MODEL
+I use Naive Bayes as the best model as it gives
+    1. ~99.5% accuracy, Micro F1 and Macro F1 on the train set
+    2. ~98% accuracy, 97% Macro F1 and 96.5% Micro F1 on the validation set 'valid.json'
+    3. ~87% accuracy, 86% Macro F1 and 82% Micro F1 on the validation set 'valid_new.json'

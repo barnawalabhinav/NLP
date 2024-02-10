@@ -16,13 +16,13 @@ def predict(data_path, model_path, out_path):
         for pred in y_pred:
             f.write(pred + '\n')
 
-    y_true = df['langid'].values
-    micro_f1 = compute_micro_f1_score(y_pred, y_true)
-    macro_f1 = compute_macro_f1_score(y_pred, y_true)
-    accuracy = np.mean(y_pred == y_true)
-    print(f'Micro F1: {micro_f1}')
-    print(f'Macro F1: {macro_f1}')
-    print(f'Accuracy: {accuracy}')
+    # y_true = df['langid'].values
+    # micro_f1 = compute_micro_f1_score(y_pred, y_true)
+    # macro_f1 = compute_macro_f1_score(y_pred, y_true)
+    # accuracy = np.mean(y_pred == y_true)
+    # print(f'Micro F1: {micro_f1}')
+    # print(f'Macro F1: {macro_f1}')
+    # print(f'Accuracy: {accuracy}')
 
 
 if __name__ == '__main__':
