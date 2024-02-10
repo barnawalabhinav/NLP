@@ -9,7 +9,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 
-from evaluation import compute_macro_f1_score, compute_micro_f1_score
+# from evaluation import compute_macro_f1_score, compute_micro_f1_score
 
 
 def load_data(data_path):
@@ -32,10 +32,11 @@ def svm(dataframe, model_path):
 def naive_bayes(dataframe, model_path):
     print("------- Training Naive Bayes --------")
     pipeline = Pipeline([
-        ('tfidf', TfidfVectorizer(ngram_range=(1, 2))),
+        ('tfidf', TfidfVectorizer(ngram_range=(1, 3))),
         # ('tfidf', TfidfVectorizer()),
+        # ('tfidf', CountVectorizer(ngram_range=(1, 2))),
         # ('cntvec', CountVectorizer()),
-        ('mnb', MultinomialNB(alpha=0.01))
+        ('mnb', MultinomialNB(alpha=0.005))
     ])
     pipeline.fit(dataframe['text'].values, dataframe['langid'].values)
     with open(model_path, 'wb') as f:
@@ -60,10 +61,8 @@ def random_forest(dataframe, model_path):
     pipeline = Pipeline([
         ('tfidf', TfidfVectorizer()),
         # ('cntvec', CountVectorizer()),
-        # ('random_forest', RandomForestClassifier(
-        #     n_estimators=10, criterion='entropy', random_state=42))
         ('random_forest', RandomForestClassifier(
-            n_estimators=100, max_depth=100, class_weight='balanced', criterion='gini', random_state=0))
+            n_estimators=100, max_depth=2, random_state=0))
     ])
     pipeline.fit(dataframe['text'].values, dataframe['langid'].values)
     with open(model_path, 'wb') as f:
@@ -91,6 +90,46 @@ def train(data_path, model_path, model_type='naive_bayes'):
         random_forest(df, model_path)
 
     print('------------------ Training Done! ------------------')
+
+    # ---------------------------------------------- #
+
+    # with open(model_path, 'rb') as f:
+    #     pipeline = pickle.load(f)
+    # y_pred = pipeline.predict(df['text'].values)
+
+    # y_true = df['langid'].values
+    # micro_f1 = compute_micro_f1_score(y_pred, y_true)
+    # macro_f1 = compute_macro_f1_score(y_pred, y_true)
+    # accuracy = np.mean(y_pred == y_true)
+    # print(f'TRAIN Micro F1: {micro_f1}')
+    # print(f'TRAIN Macro F1: {macro_f1}')
+    # print(f'TRAIN Accuracy: {accuracy}')
+
+    # # ---------------------------------------------- #
+
+    # df = load_data("data/valid.json")
+    # y_pred = pipeline.predict(df['text'].values)
+
+    # y_true = df['langid'].values
+    # micro_f1 = compute_micro_f1_score(y_pred, y_true)
+    # macro_f1 = compute_macro_f1_score(y_pred, y_true)
+    # accuracy = np.mean(y_pred == y_true)
+    # print(f'VALID Micro F1: {micro_f1}')
+    # print(f'VALID Macro F1: {macro_f1}')
+    # print(f'VALID Accuracy: {accuracy}')
+
+    # # ---------------------------------------------- #
+
+    # df = load_data("data/valid_new.json")
+    # y_pred = pipeline.predict(df['text'].values)
+
+    # y_true = df['langid'].values
+    # micro_f1 = compute_micro_f1_score(y_pred, y_true)
+    # macro_f1 = compute_macro_f1_score(y_pred, y_true)
+    # accuracy = np.mean(y_pred == y_true)
+    # print(f'VALID_NEW Micro F1: {micro_f1}')
+    # print(f'VALID_NEW Macro F1: {macro_f1}')
+    # print(f'VALID_NEW Accuracy: {accuracy}')
 
 
 if __name__ == '__main__':
