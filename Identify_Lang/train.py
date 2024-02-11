@@ -1,3 +1,4 @@
+import os
 import sys
 import pickle
 import numpy as np
@@ -6,6 +7,7 @@ from sklearn.svm import SVC
 from sklearn.pipeline import Pipeline
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import cross_val_score
 from sklearn.linear_model import LogisticRegression
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 
@@ -38,6 +40,13 @@ def naive_bayes(dataframe, model_path):
         # ('cntvec', CountVectorizer()),
         ('mnb', MultinomialNB(alpha=0.005))
     ])
+    
+    # # Perform cross-validation
+    # scores = cross_val_score(pipeline, dataframe['text'].values, dataframe['langid'].values, cv=5)
+    
+    # print("Cross Validation Scores:", scores)
+    # print("Mean Accuracy:", scores.mean())
+    
     pipeline.fit(dataframe['text'].values, dataframe['langid'].values)
     with open(model_path, 'wb') as f:
         pickle.dump(pipeline, f)
@@ -70,7 +79,14 @@ def random_forest(dataframe, model_path):
 
 
 def train(data_path, model_path, model_type='naive_bayes'):
-    df = load_data(data_path)
+    data_path1 = os.path.join(data_path, 'train.json')
+    df1 = load_data(data_path1)
+    data_path2 = os.path.join(data_path, 'valid.json')
+    df2 = load_data(data_path2)
+    data_path3 = os.path.join(data_path, 'valid_new.json')
+    df3 = load_data(data_path3)
+
+    df = pd.concat([df1, df2, df3])
 
     # # Downsample the data
     # for lang in ['bn', 'de', 'en', 'es', 'fr', 'hi', 'it', 'kn', 'ml', 'mr', 'pt', 'sv', 'ta']:
