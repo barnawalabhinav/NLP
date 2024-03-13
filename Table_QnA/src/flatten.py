@@ -13,8 +13,6 @@ WORD2VEC = api.load("word2vec-google-news-300")
 
 nltk.download('punkt')
 
-vec = WORD2VEC.wv['computer']
-print
 
 class Flatten(nn.Module):
     def __init__(self, max_seq_len, token_size=300):
@@ -138,3 +136,7 @@ class Flatten(nn.Module):
 
         df = pd.DataFrame(sampled_data)
         print(df)
+
+
+flattener = Flatten(128)
+flattener.forward("../data/A2_val.jsonl")
