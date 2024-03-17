@@ -1,4 +1,3 @@
-import os
 import math
 import time
 import torch
@@ -21,8 +20,6 @@ MAX_SEQ_LEN = 256
 LOG_INTERVAL = 10
 SCHED_GAMMA = 0.9
 SCHED_STEP_SIZE = 1
-
-from embedding import Custom_Embedding
 
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -52,7 +49,7 @@ def train(data_file):
     
     model.train()
     total_loss = 0.0
-    start = time.time()
+    start_time = time.time()
 
     for epoch in NUM_EPOCHS:
         for i in range(len(batch_list)):
