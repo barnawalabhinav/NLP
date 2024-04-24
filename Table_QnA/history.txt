@@ -1,0 +1,1000 @@
+ 1011  redis-server --port 6000 --daemonize yes
+ 1012  redis-cli -p 6000 SHUTDOWN
+ 1013  redis-server --port 6000 --daemonize yes
+ 1014  redis-cli -p 6000 SHUTDOWN
+ 1015  redis-server --port 6000 --daemonize yes
+ 1016  redis-cli -p 6000 SHUTDOWN
+ 1017  redis-server --port 6000 --daemonize yes
+ 1018  redis-cli -p 6000 SHUTDOWN
+ 1019  redis-server --port 6000 --daemonize yes
+ 1020  redis-cli -p 6000 SHUTDOWN
+ 1021  redis-server --port 6000 --daemonize yes
+ 1022  redis-cli -p 6000 SHUTDOWN
+ 1023  redis-server --port 6000 --daemonize yes
+ 1024  redis-cli -p 6000 SHUTDOWN
+ 1025  redis-server --port 6000 --daemonize yes
+ 1026  redis-cli -p 6000 SHUTDOWN
+ 1027  redis-server --port 6000 --daemonize yes
+ 1028  redis-cli -p 6000 SHUTDOWN
+ 1029  redis-server --port 6000 --daemonize yes
+ 1030  redis-cli -p 6000 SHUTDOWN
+ 1031  redis-server --port 6000 --daemonize yes
+ 1032  redis-cli -p 6000 SHUTDOWN
+ 1033  redis-server --port 6000 --daemonize yes
+ 1034  redis-cli -p 6000 SHUTDOWN
+ 1035  redis-server --port 6000 --daemonize yes
+ 1036  redis-cli -p 6000 SHUTDOWN
+ 1037  redis-server --port 6000 --daemonize yes
+ 1038  redis-cli -p 6000 SHUTDOWN
+ 1039  redis-server --port 6000 --daemonize yes
+ 1040  redis-cli -p 6000 SHUTDOWN
+ 1041  redis-server --port 6000 --daemonize yes
+ 1042  ext
+ 1043  exit
+ 1044  cd Dropbox/Distributed-Rate-Limiter/
+ 1045  code .
+ 1046  conda deactivate
+ 1047  cd src
+ 1048  python3 main.py
+ 1049  sudo 'sysctl vm.overcommit_memory=1
+ 1050  spdf261014
+ 1051  sudo sysctl vm.overcommit_memory=1
+ 1052  python3 main.py
+ 1053  ps -e -o pid,tty,stat,cmd
+ 1054  kill -9 1159
+ 1055  python3 main.py
+ 1056  exit
+ 1057  conda deactivate
+ 1058  cd Dropbox/Distributed-Rate-Limiter/
+ 1059  cd src
+ 1060  python3 client_main.py
+ 1061  redis-cli -p {D6000 SHUTDOWN
+ 1062  redis-cli -p 6000 SHUTDOWN
+ 1063  redis-cli -p 6000
+ 1064  redis-server --port 6000 --daemonize yes
+ 1065  redis-cli -p 6000 SHUTDOWN
+ 1066  redis-server --port 6000 --daemonize yes
+ 1067  redis-cli -p 6000 SHUTDOWN
+ 1068  python3 client_main.py
+ 1069  exit
+ 1070  conda deactivate
+ 1071  cd src
+ 1072  python3 client_main.py
+ 1073  git branch
+ 1074  python main.py
+ 1075  cd src
+ 1076  conda deactivate
+ 1077  python3 main.py
+ 1078  ps -e -o pid,tty,stat,cmd
+ 1079  kill -9 976
+ 1080  python3 main.py
+ 1081  cd src
+ 1082  python3 client_main.py
+ 1083  conda activate data_mining
+ 1084  cd Q2/
+ 1085  python3 sq2.py 
+ 1086  python3 class.py 
+ 1087  python3 sq2.py 
+ 1088  conda activate data_mining
+ 1089  conda activate data_mining
+ 1090  conda activate data_mining
+ 1091  conda activate data_mining
+ 1092  python3 q2_sr.py
+ 1093  cd Q2/
+ 1094  python3 q2_sr.py
+ 1095  python3 client_main.py
+ 1096  python3 q2_sr.py 
+ 1097  python3 test.py 
+ 1098  python3 q2_sr.py 
+ 1099  python3 test.py 
+ 1100  python3 test.py
+ 1101  python3 q2_sr.py 
+ 1102  python3 test.py
+ 1103  python3 q2_sr.py 
+ 1104  python3 test.py
+ 1105  python3 q2_sr.py 
+ 1106  efdf
+ 1107  conda activate data_mining
+ 1108  /home/abhinav/miniconda3/envs/data_mining/bin/python
+ 1109  '''
+ 1110  conda activate data_mining
+ 1111  cd Q2/
+ 1112  python3 q2_sr.py 
+ 1113  python3 test.py
+ 1114  python3 q2_sr.py 
+ 1115  conda activate data_mining
+ 1116  cd Q2
+ 1117  python3 q2.py 
+ 1118  python3 q2.py
+ 1119  python3 q2.py 
+ 1120  python3 q2.py
+ 1121  python3 main.py
+ 1122  python3 q2.py
+ 1123  python3 main.py
+ 1124  python3 q2.py
+ 1125  python3 class.py 
+ 1126  python3 class.py
+ 1127  conda env export > .yml
+ 1128  python3 sq2.py 
+ 1129  conda activate data_mining
+ 1130  cd Q2/
+ 1131  ls
+ 1132  python3 sq2.py 
+ 1133  python3 class.py 
+ 1134  cd Dropbox/Data_Mining/
+ 1135  ls
+ 1136  cd A3
+ 1137  conda activate data_mining
+ 1138  code .
+ 1139  cd Dropbox/Distributed-Rate-Limiter/
+ 1140  code .
+ 1141  exit
+ 1142  conda activate data_mining
+ 1143  cd MyTeam/A3/
+ 1144  bash interface1.sh
+ 1145  time bash interface1.sh
+ 1146  python evaluate.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_2/valid --model=Custompython evaluate.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_2/valid --model=Custom
+ 1147  python evaluate.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_2/valid --model=Custom
+ 1148  cd classification/
+ 1149  python evaluate.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_2/valid --model=Custom
+ 1150  time bash interface1.sh
+ 1151  python evaluate.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_2/valid --model=Custom
+ 1152  rm y_classification.csv
+ 1153  python evaluate.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_2/valid --model=Custom
+ 1154  python evaluate.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_2/train --model=Custom
+ 1155  rm y_classification.csv
+ 1156  python evaluate.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_2/train 
+ 1157  python evaluate.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_2/train --model=Logistic
+ 1158  rm y_classification.csv
+ 1159  python evaluate.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_2/train --model=Random
+ 1160  python evaluate.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_2/train --model=logistic
+ 1161  python evaluate.py --model_path=logistic.pth --dataset_path=../../../dataset/dataset_2/train --model=logistic
+ 1162  python evaluate.py --model_path=logistic.pth --dataset_path=../../../dataset/dataset_2/valid --model=logistic
+ 1163  rm y_classification.csv
+ 1164  python evaluate.py --model_path=logistic.pth --dataset_path=../../../dataset/dataset_2/valid --model=logistic
+ 1165  rm y_classification.csv
+ 1166  python evaluate.py --model_path=logistic.pth --dataset_path=../../../dataset/dataset_2/valid --model=logistic
+ 1167  python evaluate.py --model_path=logistic.pth --dataset_path=../../../dataset/dataset_2/valid --model=custom
+ 1168  python evaluate.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_2/valid 
+ 1169  rm y_classification.csv 
+ 1170  python evaluate.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_2/valid 
+ 1171  conda activate data_mining
+ 1172  cd MyTeam/A3
+ 1173  time bash interface1.sh 
+ 1174  cd Dropbox/Data_Mining/A3
+ 1175  conda activate data_mining
+ 1176  code .
+ 1177  exit
+ 1178  conda activate data_mining
+ 1179  conda install -c anaconda networkx
+ 1180  cd MyTeam/A3/regression/
+ 1181  ls
+ 1182  python train.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_1/train --val_dataset_path=../../../dataset/dataset_1/valid --model=custom
+ 1183  python train.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_1/train --val_dataset_path=../../../dataset/dataset_1/valid --model=baseline
+ 1184  python train.py --model_path=baseline.pth --dataset_path=../../../dataset/dataset_1/train --val_dataset_path=../../../dataset/dataset_1/valid --model=baseline
+ 1185  cd ..
+ 1186  cd classification/
+ 1187  python train.py --model_path=baseline.pth --dataset_path=../../../dataset/dataset_2/train --val_dataset_path=../../../dataset/dataset_2/valid --model=baseline
+ 1188  conda activate data_mining
+ 1189  cd MyTeam/A3/regression/
+ 1190  history
+ 1191  python evaluate.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_1/valid
+ 1192  rm y_regression.csv 
+ 1193  python evaluate.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_1/valid
+ 1194  rm y_regression.csv && python evaluate.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_1/valid
+ 1195  rm y_regression.csv && python evaluate.py --model_path=baseline.pth --dataset_path=../../../dataset/dataset_1/valid
+ 1196  rm y_regression.csv & python evaluate.py --model_path=baseline.pth --dataset_path=../../../dataset/dataset_1/valid
+ 1197  rm y_regression.csv & python evaluate.py --model_path=baseline.pth --dataset_path=../../../dataset/dataset_1/valid --model=baseline
+ 1198  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_1/valid --model=custom
+ 1199  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_1/valid
+ 1200  rm y_regression.csv & python evaluate.py --model_path=baseline.pth --dataset_path=../../../dataset/dataset_1/valid --model=baseline
+ 1201  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_1/valid
+ 1202  rm y_regression.csv & python evaluate.py --model_path=baseline.pth --dataset_path=../../../dataset/dataset_1/valid --model=baseline
+ 1203  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_1/valid
+ 1204  rm y_regression.csv & python evaluate.py --model_path=baseline.pth --dataset_path=../../../dataset/dataset_1/valid --model=baseline
+ 1205  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_1/valid
+ 1206  cd ..
+ 1207  cd classification/
+ 1208  rm y_classification.csv & python evaluate.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_1/valid
+ 1209  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_2/valid
+ 1210  rm y_classification.csv & python evaluate.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_2/valid
+ 1211  rm y_classification.csv & python evaluate.py --model_path=baseline.pth --dataset_path=../../../dataset/dataset_2/valid --model=baseline
+ 1212  cd ..
+ 1213  python visualise.py
+ 1214  python visualise.py --dataset=../../../dataset/dataset_2/train
+ 1215  python visualise.py --dataset=../../dataset/dataset_2/train
+ 1216  python visualise.py --dataset=../../dataset/dataset_2/valid
+ 1217  python visualise.py --dataset=../../dataset/dataset_21/valid
+ 1218  python visualise.py --dataset=../../dataset/dataset_1/valid
+ 1219  python visualise.py --dataset=../../dataset/dataset_1/train
+ 1220  python visualise.py --dataset=../../dataset/dataset_1/train --save_path=dataset_1_train.png
+ 1221  python visualise.py --dataset=../../dataset/dataset_1/train --save_path=train_1.png
+ 1222  python visualise.py --dataset=../../dataset/dataset_2/train --save_path=train_2.png
+ 1223  python visualise.py --dataset=../../dataset/dataset_2/valid --save_path=valid_2.png
+ 1224  python visualise.py --dataset=../../dataset/dataset_1/valid --save_path=valid_1.png
+ 1225  conda activate data_mining
+ 1226  python train.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_1/train --val_dataset_path=../../../dataset/dataset_1/valid
+ 1227  cd MyTeam/A3/regression/
+ 1228  python train.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_1/train --val_dataset_path=../../../dataset/dataset_1/valid
+ 1229  cd ..
+ 1230  cd classification/
+ 1231  python train.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_1/train --val_dataset_path=../../../dataset/dataset_1/valid
+ 1232  python train.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_2/train --val_dataset_path=../../../dataset/dataset_2/valid
+ 1233  conda activate data_mining
+ 1234  cd A3/MyTeam/A3/classification/
+ 1235  python train.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_2/train --val_dataset_path=../../../dataset/dataset_2/valid
+ 1236  python train.py --model_path=baseline.pth --dataset_path=../../../dataset/dataset_2/train --val_dataset_path=../../../dataset/dataset_2/valid --model=baseline
+ 1237  python train.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_2/train --val_dataset_path=../../../dataset/dataset_2/valid --num_epochs=100
+ 1238  python train.py --model_path=baseline.pth --dataset_path=../../../dataset/dataset_2/train --val_dataset_path=../../../dataset/dataset_2/valid --model=baseline
+ 1239  python train.py --model_path=baseline.pth --dataset_path=../../../dataset/dataset_2/train --val_dataset_path=../../../dataset/dataset_2/valid --model=baseline --checkpoint=baseline
+ 1240  ls
+ 1241  python train.py --model_path=baseline.pth --dataset_path=../../../dataset/dataset_2/train --val_dataset_path=../../../dataset/dataset_2/valid --model=baseline --checkpoint=baseline.pth
+ 1242  conda activate data_mining
+ 1243  python train.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_2/train --val_dataset_path=../../../dataset/dataset_2/valid --num_epochs=100
+ 1244  cd A3/MyTeam/A3/classification/
+ 1245  python train.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_2/train --val_dataset_path=../../../dataset/dataset_2/valid --num_epochs=100
+ 1246  cd Dropbox/Data_Mining/
+ 1247  ls
+ 1248  conda activate data_mining
+ 1249  code .
+ 1250  exit
+ 1251  conda activate data_mining
+ 1252  cd ..
+ 1253  vi .gitignore 
+ 1254  ssh cs5200415@hpc.iitd.ac.in
+ 1255  ssh dell@vrl4.cse.iitd.ac.in
+ 1256  exit
+ 1257  cd Dropbox/Data_Mining/A3/
+ 1258  conda activate data_mining
+ 1259  code .
+ 1260  ssh cs5200415@hpc.iitd.ac.in
+ 1261  xit
+ 1262  conda install -c conda-forge torchmetrics
+ 1263  conda install -c anaconda scikit-learn
+ 1264  ssh dell@vrl4.cse.iitd.ac.in
+ 1265  exit
+ 1266  cd MyTeam/A3/regression/
+ 1267  python train.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_1/train --val_dataset_path=../../../dataset/dataset_1/valid --num_epochs=100
+ 1268  python train.py --model_path=baseline.pth --dataset_path=../../../dataset/dataset_1/train --val_dataset_path=../../../dataset/dataset_1/valid --model=baseline
+ 1269  python train.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_1/train --val_dataset_path=../../../dataset/dataset_1/valid
+ 1270  python train.py --model_path=useless.pth --dataset_path=../../../dataset/dataset_1/train --val_dataset_path=../../../dataset/dataset_1/valid
+ 1271  conda install -c conda-forge torchmetrics
+ 1272  cd ../classification/
+ 1273  python3 train.py 
+ 1274  python3 train.py --model_path . --dataset_path ../../../dataset/dataset_2/train --val_dataset_path ../../../dataset/dataset_2/val  
+ 1275  python3 train.py --model_path . --dataset_path ../../../dataset/dataset_2/train --val_dataset_path ../../../dataset/dataset_2/valid
+ 1276  python3 train.py --model_path output.pth --dataset_path ../../../dataset/dataset_2/train --val_dataset_path ../../../dataset/dataset_2/valid
+ 1277  python3 train.py --model_path output.pth --dataset_path ../../../dataset/dataset_2/train --val_dataset_path ../../../dataset/dataset_2/valid --num_epochs 20
+ 1278  python3 train.py --model_path output.pth --dataset_path ../../../dataset/dataset_2/train --val_dataset_path ../../../dataset/dataset_2/valid --num_epochs 40
+ 1279  python3 train.py --model_path output.pth --dataset_path ../../../dataset/dataset_2/train --val_dataset_path ../../../dataset/dataset_2/valid --num_epochs 20
+ 1280  python3 train.py --model_path output.pth --dataset_path ../../../dataset/dataset_2/train --val_dataset_path ../../../dataset/dataset_2/valid --num_epochs 40
+ 1281  python3 train.py --model_path output.pth --dataset_path ../../../dataset/dataset_2/train --val_dataset_path ../../../dataset/dataset_2/valid --num_epochs 200
+ 1282  cd ../../
+ 1283  cd ..
+ 1284  touch .gitignore
+ 1285  vim .gitignore
+ 1286  conda activate data_mining
+ 1287  python train.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_2/train --val_dataset_path=../../../dataset/dataset_2/valid
+ 1288  cd MyTeam/A3/classification/
+ 1289  python train.py --model_path=custom.pth --dataset_path=../../../dataset/dataset_2/train --val_dataset_path=../../../dataset/dataset_2/valid
+ 1290  python train.py --model_path=useless.pth --dataset_path=../../../dataset/dataset_2/train --val_dataset_path=../../../dataset/dataset_2/valid
+ 1291  conda list
+ 1292  python train.py --model_path=useless.pth --dataset_path=../../../dataset/dataset_2/train --val_dataset_path=../../../dataset/dataset_2/valid
+ 1293  python3 train.py --model_path output.pth --dataset_path ../../../dataset/dataset_2/train --val_dataset_path ../../../dataset/dataset_2/valid --num_epochs 40
+ 1294  python3 train.py --model_path output1.pth --dataset_path ../../../dataset/dataset_2/train --val_dataset_path ../../../dataset/dataset_2/valid --num_epochs 40
+ 1295  python3 train.py --model_path=useless.pth --dataset_path=../../../dataset/dataset_2/train --val_dataset_path=../../../dataset/dataset_2/valid
+ 1296  exit
+ 1297  conda activate data_mining
+ 1298  cd MyTeam/A3/regression/
+ 1299  python train.py --model_path=useless.pth --dataset_path=../../../dataset/dataset_1/train --val_dataset_path=../../../dataset/dataset_1/valid
+ 1300  python train.py --model_path=useless.pth --dataset_path=../../../dataset/dataset_1/train --val_dataset_path=../../../dataset/dataset_1/valid --num_epochs=300
+ 1301  python train.py --model_path=useless.pth --dataset_path=../../../dataset/dataset_1/train --val_dataset_path=../../../dataset/dataset_1/valid --num_epochs=500
+ 1302  cd conda activate data_mining
+ 1303  cd MyTeam/A3/classification/
+ 1304  python3 train.py --model_path=useless.pth --dataset_path=../../../dataset/dataset_2/train --val_dataset_path=../../../dataset/dataset_2/valid --num_epochs 500
+ 1305  conda activate data_mining
+ 1306  python3 train.py --model_path=useless.pth --dataset_path=../../../dataset/dataset_2/train --val_dataset_path=../../../dataset/dataset_2/valid --num_epochs 500
+ 1307  conda activate data_minig
+ 1308  conda activate data_mining
+ 1309  conda list
+ 1310  python3
+ 1311  cd dataset/
+ 1312  cd dataset_
+ 1313  cd dataset
+ 1314  cd dataset_1
+ 1315  cd dataset_2
+ 1316  cd ..
+ 1317  pwd
+ 1318  rm y_classification.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_2/valid
+ 1319  cd ../classification/
+ 1320  rm y_classification.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_2/valid
+ 1321  rm y_classification.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_2/valid
+ 1322  rm y_classification.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_2/valid
+ 1323  rm y_classification.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_2/valid
+ 1324  rm y_classification.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_2/valid
+ 1325  rm y_classification.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_2/valid --show_acc=true
+ 1326  conda activate data_mining
+ 1327  cd classification/
+ 1328  python3 train.py --model_path=useless.pth --dataset_path=../../../dataset/dataset_2/train --val_dataset_path=../../../dataset/dataset_2/valid --num_epochs 500
+ 1329  python3 train.py --model_path=useless.pth --dataset_path=/home/abhinav/Dropbox/Data_Mining/A3/dataset/dataset_2/train --val_dataset_path=/home/abhinav/Dropbox/Data_Mining/A3/dataset/dataset_2/valid
+ 1330  rm y_classification.csv && python evaluate.py --model_path=custom.pth --dataset_path=../../dataset/dataset_2/valid
+ 1331  rm y_classification.csv && python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_2/valid
+ 1332  rm y_classification.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_2/valid
+ 1333  python3 train.py --model_path=useless.pth --dataset_path=/home/abhinav/Dropbox/Data_Mining/A3/dataset/dataset_2/train --val_dataset_path=/home/abhinav/Dropbox/Data_Mining/A3/dataset/dataset_2/valid
+ 1334  conda activate data_mining
+ 1335  cd regression/
+ 1336  python3 train.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/train --val_dataset_path=../dataset/dataset_1/valid
+ 1337  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_1/valid
+ 1338  rm y_regression.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/valid
+ 1339  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_1/valid
+ 1340  rm y_regression.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/valid
+ 1341  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_1/valid
+ 1342  rm y_regression.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/valid
+ 1343  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_1/valid
+ 1344  rm y_regression.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/valid
+ 1345  rm y_regression.csv & python evaluate.py --model_path=useless_2.pth --dataset_path=../dataset/dataset_1/valid
+ 1346  rm y_regression.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/valid
+ 1347  rm y_regression.csv & python evaluate.py --model_path=useless_2.pth --dataset_path=../dataset/dataset_1/valid
+ 1348  rm y_regression.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/valid
+ 1349  rm y_regression.csv & python evaluate.py --model_path=useless_2.pth --dataset_path=../dataset/dataset_1/valid
+ 1350  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_1/valid
+ 1351  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_1/train
+ 1352  rm y_regression.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/train
+ 1353  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_1/train
+ 1354  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_1/train --show_acc=true
+ 1355  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1356  rm y_regression.csv & python evaluate.py --model_path=custom_dropout.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1357  rm y_regression.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/train
+ 1358  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1359  rm y_regression.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/train
+ 1360  rm y_regression.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/train --show_acc-true
+ 1361  rm y_regression.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/train --show_acc=true
+ 1362  rm y_regression.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1363  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1364  rm y_regression.csv & python evaluate.py --model_path=custom_dropout.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1365  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1366  ssh dell@vrl4.cse.iitd.ac.in
+ 1367  cd Dropbox/Data_Mining/A3/
+ 1368  ls
+ 1369  code .
+ 1370  exit
+ 1371  cd Dropbox/Data_Mining/A3/
+ 1372  code .
+ 1373  exit
+ 1374  conda activate data_mining
+ 1375  cd classification/
+ 1376  rm y_classification.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_2/valid --show_acc=true
+ 1377  rm y_classification.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_2/valid --show_acc=true
+ 1378  rm y_classification.csv & python evaluate.py --model_path=baseline.pth --dataset_path=../dataset/dataset_2/valid --show_acc=true
+ 1379  rm y_classification.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_2/valid --show_acc=true
+ 1380  rm y_classification.csv & python evaluate.py --model_path=ueless.pth --dataset_path=../dataset/dataset_2/valid --show_acc=true
+ 1381  rm y_classification.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_2/valid --show_acc=true
+ 1382  rm y_classification.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_2/valid --show_acc=true
+ 1383  rm y_classification.csv & python evaluate.py --model_path=baseline.pth --dataset_path=../dataset/dataset_2/valid --show_acc=true
+ 1384  rm y_classification.csv & python evaluate.py --model_path=baseline.pth --dataset_path=../dataset/dataset_2/valid --show_acc=true --model=baseline
+ 1385  rm y_classification.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_2/valid --show_acc=true
+ 1386  rm y_classification.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_2/valid --show_acc=true
+ 1387  rm y_classification.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_2/valid --show_acc=true
+ 1388  conda activate data_mining
+ 1389  cd classification/
+ 1390  python3 train.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/train --val_dataset_path=../dataset/dataset_1/valid --plot_path=learning_curve.png
+ 1391  stat useless.pth 
+ 1392  python3 train.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/train --val_dataset_path=../dataset/dataset_1/valid --plot_path=learning_curve.png
+ 1393  python3 train.py --model_path=useless.pth --dataset_path=../dataset/dataset_2/train --val_dataset_path=../dataset/dataset_2/valid --plot_path=learning_curve.png
+ 1394  python3 train.py --model_path=useless.pth --dataset_path=../dataset/dataset_2/train --val_dataset_path=../dataset/dataset_2/valid --plot_path=baseline_loss_class.png --model=baseline
+ 1395  python3 train.py --model_path=useless.pth --dataset_path=../dataset/dataset_2/train --val_dataset_path=../dataset/dataset_2/valid 
+ 1396  python3 train.py --model_path=useless.pth --dataset_path=../dataset/dataset_2/train --val_dataset_path=../dataset/dataset_2/valid --plot_path=curve.png
+ 1397  python3 train.py --model_path=useless.pth --dataset_path=../dataset/dataset_2/train --val_dataset_path=../dataset/dataset_2/valid --plot_path=curve.png --num_epochs=10
+ 1398  python3 train.py --model_path=useless.pth --dataset_path=../dataset/dataset_2/train --val_dataset_path=../dataset/dataset_2/valid --plot_path=custom_class.png
+ 1399  python3 train.py --model_path=useless.pth --dataset_path=../dataset/dataset_2/train --val_dataset_path=../dataset/dataset_2/valid --plot_path=baseline_class.png
+ 1400  conda activate data_mining
+ 1401  cd regression/
+ 1402  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1403  rm y_regression.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1404  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1405  rm y_regression.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1406  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1407  rm y_regression.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1408  rm y_regression.csv & python evaluate.py --model_path=custom_dropout.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1409  rm y_regression.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1410  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1411  rm y_regression.csv & python evaluate.py --model_path=custom_drop.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1412  rm y_regression.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1413  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1414  rm y_regression.csv & python evaluate.py --model_path=custom_drop.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1415  rm y_regression.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1416  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1417  rm y_regression.csv & python evaluate.py --model_path=baseline.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true --model=baseline
+ 1418  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1419  rm y_regression.csv & python evaluate.py --model_path=custom_drop.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1420  rm y_regression.csv & python evaluate.py --model_path=custom_dropout.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1421  rm y_regression.csv & python evaluate.py --model_path=baseline.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true --model=baseline
+ 1422  rm y_regression.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true --model=baseline
+ 1423  rm y_regression.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true --model=random
+ 1424  rm y_regression.csv & python evaluate.py --model_path=custom_drop.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1425  rm y_regression.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1426  rm y_regression.csv & python evaluate.py --model_path=custom_drop.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1427  rm y_regression.csv & python evaluate.py --model_path=custom_dropout.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1428  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1429  rm y_regression.csv & python evaluate.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1430  rm y_regression.csv & python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1431  rm y_regression.csv & python evaluate.py --model_path=custom_drop.pth --dataset_path=../dataset/dataset_1/valid --show_acc=true
+ 1432  cd regression/
+ 1433  conda activate data_mining
+ 1434  python3 train.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/train --val_dataset_path=../dataset/dataset_1/valid
+ 1435  python3 train.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/train --val_dataset_path=../dataset/dataset_1/valid --checkpoint=useless.pth
+ 1436  python3 train.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/train --val_dataset_path=../dataset/dataset_1/valid
+ 1437  python3 train.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/train --val_dataset_path=../dataset/dataset_1/valid --plot_path=loss.png
+ 1438  python3 train.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/train --val_dataset_path=../dataset/dataset_1/valid --plot_path=learning_curve.png
+ 1439  python3 train.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/train --val_dataset_path=../dataset/dataset_1/valid --plot_path=learning_curve.png --num_epochs=5
+ 1440  python3 train.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/train --val_dataset_path=../dataset/dataset_1/valid --plot_path=learning_curve.png --num_epochs=200
+ 1441  python3 train.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/train --val_dataset_path=../dataset/dataset_1/valid --plot_path=learning_curve.png
+ 1442  python3 train.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/train --val_dataset_path=../dataset/dataset_1/valid --checkpoint=useless.pth
+ 1443  python3 train.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/train --val_dataset_path=../dataset/dataset_1/valid --plot_path=learning_curve.png
+ 1444  python3 train.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/train --val_dataset_path=../dataset/dataset_1/valid --model=baseline
+ 1445  python3 train.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/train --val_dataset_path=../dataset/dataset_1/valid
+ 1446  python3 train.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/train --val_dataset_path=../dataset/dataset_1/valid --plot_path=custom_regr.png --num_epochs=3
+ 1447  python3 train.py --model_path=useless.pth --dataset_path=../dataset/dataset_1/train --val_dataset_path=../dataset/dataset_1/valid --plot_path=custom_regr.png
+ 1448  conda activate data_mining
+ 1449  cd classification/
+ 1450  python evaluate.py --model_path=baseline.pth --dataset_path=../dataset/dataset_2/valid > analysis.txt
+ 1451  python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_2/valid > analysis.txt
+ 1452  python evaluate.py --model_path=custom.pth --dataset_path=../dataset/dataset_2/valid
+ 1453  python analysis.py --model_path=custom.pth --dataset_path=../dataset/dataset_2/valid
+ 1454  python analysis.py --model_path=custom.pth --dataset_path=../dataset/dataset_2/valid > analysis.txt 
+ 1455  python analysis.py --model_path=custom.pth --dataset_path=../dataset/dataset_2/valid > analysis.txt
+ 1456  python analysis.py --model_path=custom.pth --dataset_path=../dataset/dataset_2/valid --show_acc=true > analysis.txt
+ 1457  python analysis.py --model_path=custom.pth --dataset_path=../dataset/dataset_2/valid --show_acc=true --model=random > analysis.txt
+ 1458  python analysis.py --model_path=custom.pth --dataset_path=../dataset/dataset_2/valid --show_acc=true --model=random >> analysis.txt
+ 1459  python analysis.py --model_path=baseline.pth --dataset_path=../dataset/dataset_2/valid --show_acc=true --model=baseline >> analysis.txt
+ 1460  python analysis.py --model_path=useless.pth --dataset_path=../dataset/dataset_2/valid --show_acc=true >> analysis.txt
+ 1461  python analysis.py --model_path=custom.pth --dataset_path=../dataset/dataset_2/valid --show_acc=true >> analysis.txt
+ 1462  python analysis.py --model_path=custom.pth --dataset_path=../dataset/dataset_2/train --show_acc=true >> analysis.txt
+ 1463  cd ..
+ 1464  bash interface2.sh 
+ 1465  bash interface2.sh C train dataset/dataset_2/train/ dataset/dataset_2/valid/
+ 1466  bash interface2.sh C train classification.pth dataset/dataset_2/train/ dataset/dataset_2/valid/
+ 1467  cd dataset/dataset_2/train/
+ 1468  ls
+ 1469  vim dataset/dataset_2/train/graph_labels.csv.gz
+ 1470  cd ..
+ 1471  cd dataset/dataset_2/train/
+ 1472  pwd
+ 1473  cd .. 
+ 1474  cd ..
+ 1475  bash interface2.sh C train classification.pth /home/abhinav/Dropbox/Data_Mining/A3/dataset/dataset_2/train/ /home/abhinav/Dropbox/Data_Mining/A3/dataset/dataset_2/valid/
+ 1476  bash interface2.sh C train /home/abhinav/Dropbox/Data_Mining/A3/classification.pth /home/abhinav/Dropbox/Data_Mining/A3/dataset/dataset_2/train/ /home/abhinav/Dropbox/Data_Mining/A3/dataset/dataset_2/valid/
+ 1477  bash interface2.sh C eval /home/abhinav/Dropbox/Data_Mining/A3/classification.pth /home/abhinav/Dropbox/Data_Mining/A3/dataset/dataset_2/train/
+ 1478  bash interface2.sh C eval /home/abhinav/Dropbox/Data_Mining/A3/classification.pth /home/abhinav/Dropbox/Data_Mining/A3/dataset/dataset_2/valid
+ 1479  conda deactivate
+ 1480  ls
+ 1481  cd Downloads/
+ 1482  ls
+ 1483  git clone https://github.com/reail-iitd/lpi-pinn.git
+ 1484  ls
+ 1485  cd lpi-pinn/
+ 1486  ls
+ 1487  code .
+ 1488  exit
+ 1489  cd Dropbox/COL362/
+ 1490  code .
+ 1491  exit
+ 1492  conda activate nlp_a1
+ 1493  cd Identify_Lang/
+ 1494  python train.py 
+ 1495  python train.py
+ 1496  clear
+ 1497  python train.py
+ 1498  git push
+ 1499  git lfs track models/*
+ 1500  git-lfs track models/*
+ 1501  git push
+ 1502  git-lfs track data/*
+ 1503  git push
+ 1504  git log
+ 1505  git-lfs track models/* data/*
+ 1506  python train.py
+ 1507  conda activate nlp_a1
+ 1508  conda install --name nlp_a1 autopep8 -y
+ 1509  cd Identify_Lang/
+ 1510  git reset --hard HEAD~1
+ 1511  touch .gitignore
+ 1512  python train.py 
+ 1513  cd Dropbox/
+ 1514  ls
+ 1515  mkdir NLP
+ 1516  rmdir NLP/
+ 1517  git clone https://github.com/barnawalabhinav/NLP.git
+ 1518  git clone git@github.com:barnawalabhinav/NLP.git
+ 1519  cd NLP/
+ 1520  ls
+ 1521  mkdir Lang_Identity
+ 1522  ls
+ 1523  code .
+ 1524  cd Lang_Identity/
+ 1525  touch run_model.sh
+ 1526  touch train.py
+ 1527  conda create -n "nlp_a1" python=3.10
+ 1528  sudo apt update
+ 1529  sudo apt list --upgradable
+ 1530  sudo apt upgrade
+ 1531  sudo apt autoremove
+ 1532  sudo apt upgrade
+ 1533  sudo apt-get remove --purge linux-tools-common
+ 1534  sudo apt upgrade
+ 1535  sudo apt-get update
+ 1536  sudo apt-get upgrade
+ 1537  conda update -n base -c defaults conda
+ 1538  conda activate nlp_a1
+ 1539  conda install -c conda-forge scikit-learn=1.4.0
+ 1540  conda install anaconda::pandas
+ 1541  ls
+ 1542  cd ..
+ 1543  ls
+ 1544  cd Identify_Lang/
+ 1545  ls
+ 1546  git lfs track models/*
+ 1547  git-lfs track models/*
+ 1548  sudo apt install git-lfs
+ 1549  exit
+ 1550  conda activate nlp_a1
+ 1551  cd Identify_Lang/
+ 1552  du -sh models/
+ 1553  cd models/
+ 1554  la
+ 1555  l
+ 1556  ls
+ 1557  conda activate nlp_a1
+ 1558  cd Identify_Lang/
+ 1559  python train.py 
+ 1560  git push
+ 1561  cd Dropbox/
+ 1562  cd NLP/Identify_Lang/
+ 1563  ls
+ 1564  code .
+ 1565  bash run_model.sh train models/nb_uni_bi_0.01.pkl data/train.json
+ 1566  conda activate nlp_a1
+ 1567  bash run_model.sh train models/nb_uni_bi_0.01.pkl data/train.json
+ 1568  exit
+ 1569  bash run_model.sh train
+ 1570  bash run_model.sh test models/model.pkl data/valid.json output.txt
+ 1571  conda activate nlp_a1
+ 1572  bash run_model.sh test models/model.pkl data/valid.json output.txt
+ 1573  bash run_model.sh train models/model_0.1.pkl data/train.json
+ 1574  bash run_model.sh test models/model.pkl data/valid.json output.txt
+ 1575  bash run_model.sh train models/model_0.1.pkl data/train.json
+ 1576  bash run_model.sh test models/model_0.1.pkl data/valid.json output.txt
+ 1577  bash run_model.sh train models/model_0.01.pkl data/train.json
+ 1578  bash run_model.sh test models/model_0.01.pkl data/valid.json output.txt
+ 1579  bash run_model.sh train models/model_0.0.pkl data/train.json
+ 1580  bash run_model.sh test models/model_0.0.pkl data/valid.json output.txt
+ 1581  rm models/model_0.0
+ 1582  rm models/model_0.0.pkl 
+ 1583  bash run_model.sh train models/model_0.001.pkl data/train.json
+ 1584  bash run_model.sh test models/model_0.001.pkl data/valid.json output.txt
+ 1585  bash run_model.sh train models/model_0.01.pkl data/train.json
+ 1586  bash run_model.sh test models/model_0.01.pkl data/valid.json output.txt
+ 1587  bash run_model.sh train models/model_0.01.pkl data/train.json
+ 1588  bash run_model.sh test models/model_0.01.pkl data/valid.json output.txt
+ 1589  bash run_model.sh train models/model_0.01.pkl data/train.json
+ 1590  bash run_model.sh train models/model_0.001.pkl data/train.json
+ 1591  bash run_model.sh test models/model_0.001.pkl data/valid.json output.txt
+ 1592  bash run_model.sh train models/model_0.1.pkl data/train.json
+ 1593  bash run_model.sh test models/model_0.001.pkl data/valid.json output.txt
+ 1594  bash run_model.sh test models/model_0.1.pkl data/valid.json output.txt
+ 1595  bash run_model.sh train models/model_0.01.pkl data/train.json
+ 1596  bash run_model.sh test models/model_0.01.pkl data/valid.json output.txt
+ 1597  bash run_model.sh test models/log_regr.pkl data/valid.json output.txt
+ 1598  bash run_model.sh train models/log_regr.pkl data/train.json
+ 1599  bash run_model.sh test models/log_regr.pkl data/valid.json output.txt
+ 1600  bash run_model.sh train models/log_regr.pkl data/train.json
+ 1601  bash run_model.sh test models/log_regr.pkl data/valid.json output.txt
+ 1602  bash run_model.sh train models/log_regr.pkl data/train.json
+ 1603  bash run_model.sh test models/nb_uni_bi_0.01.pkl data/valid.json output.txt
+ 1604  bash run_model.sh train models/nb_uni_bi_0.1.pkl data/train.json
+ 1605  bash run_model.sh train models/nb_uni_bi_0.01.pkl data/train.json
+ 1606  bash run_model.sh test models/nb_uni_bi_0.01.pkl data/valid.json output.txt
+ 1607  bash run_model.sh test models/model_0.01.pkl data/valid.json output.txt
+ 1608  bash run_model.sh train models/nb_uni_bi_0.1.pkl data/train.json
+ 1609  bash run_model.sh test models/model_0.01.pkl data/valid.json output.txt
+ 1610  bash run_model.sh test models/model_0.01.pkl data/train.json output.txt
+ 1611  bash run_model.sh test models/nb_uni_bi_0.01.pkl data/train.json output.txt
+ 1612  bash run_model.sh test models/nb_uni_bi_0.01.pkl data/valid.json output.txt
+ 1613  bash run_model.sh train models/nb_uni_bi_0.01.pkl data/train.json
+ 1614  bash run_model.sh test models/nb_uni_bi_0.01.pkl data/valid.json output.txt
+ 1615  bash run_model.sh train models/nb_uni_bi_0.01.pkl data/train.json
+ 1616  bash run_model.sh test models/nb_uni_bi_0.01.pkl data/valid.json output.txt
+ 1617  bash run_model.sh test models/nb_uni_bi_0.01.pkl data/train.json output.txt
+ 1618  bash run_model.sh train models/nb_uni_bi_0.01.pkl data/train.json
+ 1619  bash run_model.sh test models/nb_uni_bi_0.01.pkl data/train.json output.txt
+ 1620  bash run_model.sh test models/nb_uni_bi_0.01.pkl data/valid.json output.txt
+ 1621  bash run_model.sh train models/nb_uni_bi_0.01.pkl data/train.json
+ 1622  bash run_model.sh test models/nb_uni_bi_0.01.pkl data/valid.json output.txt
+ 1623  bash run_model.sh train models/nb_uni_bi_0.01.pkl data/train.json
+ 1624  bash run_model.sh test models/nb_uni_bi_0.01.pkl data/valid.json output.txt
+ 1625  bash run_model.sh train models/nb_uni_bi_0.01.pkl data/train.json
+ 1626  bash run_model.sh test models/nb_uni_bi_0.01.pkl data/valid.json output.txt
+ 1627  bash run_model.sh train models/nb_uni_bi_0.01.pkl data/train.json
+ 1628  du -sh output.txt 
+ 1629  bash run_model.sh train models/nb_bi_0.01.pkl data/train.json
+ 1630  git push
+ 1631  ext
+ 1632  exit
+ 1633  conda activate nlp_a1
+ 1634  bash run_model.sh train models/log_regr.pkl data/train.json
+ 1635  bash run_model.sh test models/log_regr.pkl data/valid.json output.txt
+ 1636  Micro F1: 0.9748235680288856
+ 1637  Macro F1: 0.9726573377491757
+ 1638  Accuracy: 0.98466
+ 1639  git log
+ 1640  exit
+ 1641  cd Downloads/
+ 1642  unzip 2020CS50415.zip 
+ 1643  ssh -T git@github.com
+ 1644  git config credential.helper
+ 1645  vim /usr/local/share/gcm-core/git-credential-manager-core
+ 1646  exit
+ 1647  speedtest-cli --simple
+ 1648  sudo apt install speedtest-cli
+ 1649  speedtest-cli --simple
+ 1650  sudo speedtest-cli --simple
+ 1651  exit
+ 1652  bash run_model.sh test data/valid_new.sh output.txt
+ 1653  conda activate nlp_a1
+ 1654  bash run_model.sh test data/valid_new.sh output.txt
+ 1655  bash run_model.sh test models/model_0.01.pth  data/valid_new.sh output.txt
+ 1656  bash run_model.sh test models/model_0.01.pkl data/valid_new.sh output.txt
+ 1657  bash run_model.sh test models/model_0.01.pkl data/valid_new.json output.txt
+ 1658  bash run_model.sh test models/model_0.01.pkl data/valid.json output.txt
+ 1659  bash run_model.sh test models/nb_uni_bi_0.01.pkl data/valid.json output.txt
+ 1660  bash run_model.sh test models/model_0.01.pkl data/valid.json output.txt
+ 1661  bash run_model.sh test models/nb_uni_bi_0.01.pkl data/valid_new.json output.txt
+ 1662  bash run_model.sh train models/nb_uni_cnt_0.01.pkl data/train.json
+ 1663  bash run_model.sh test models/nb_uni_cnt_0.01.pkl data/valid_new.json output.txt
+ 1664  bash run_model.sh train models/nb_uni_bi_0.01.pkl data/train.json
+ 1665  bash run_model.sh train models/nb_uni_tfidf_0.01.pkl data/train.json
+ 1666  bash run_model.sh test models/nb_uni_tfidf_0.01.pkl data/valid_new.json output.txt
+ 1667  bash run_model.sh train models/nb_uni_tfidf_0.01.pkl data/train.json
+ 1668  bash run_model.sh test models/nb_uni_tfidf_0.01.pkl data/valid_new.json output.txt
+ 1669  bash run_model.sh train models/nb_uni_tfidf_0.01.pkl data/train.json logistic_regr
+ 1670  bash run_model.sh train models/lr_uni_tfidf_ovr.pkl data/train.json logistic_regr
+ 1671  bash run_model.sh test models/lr_uni_tfidf_ovr.pkl data/valid_new.json output.txt
+ 1672  bash run_model.sh train models/lr_uni_tfidf_ovr.pkl data/train.json logistic_regr
+ 1673  bash run_model.sh test models/lr_uni_tfidf_ovr.pkl data/valid_new.json output.txt
+ 1674  bash run_model.sh test models/lr_uni_tfidf_mn.pkl data/valid_new.json output.txt
+ 1675  bash run_model.sh train models/lr_uni_tfidf_mn.pkl data/train.json logistic_regr
+ 1676  cd Dropbox/NLP/Identify_Lang/
+ 1677  ls
+ 1678  code .
+ 1679  cd ..
+ 1680  ls -a
+ 1681  cd Identify_Lang/
+ 1682  ls -a
+ 1683  scp -r data evaluation.py models/ output.txt run_model.sh test.py train.py dell@vrl4.cse.iitd.ac.in:~/Desktop/NLP/Identify_Lang
+ 1684  scp -r models/ output.txt run_model.sh test.py train.py dell@vrl4.cse.iitd.ac.in:~/Desktop/NLP/Identify_Lang
+ 1685  scp -r output.txt run_model.sh test.py train.py dell@vrl4.cse.iitd.ac.in:~/Desktop/NLP/Identify_Lang
+ 1686  conda evn export > nlp_a1.yml
+ 1687  conda env export > nlp_a1.yml
+ 1688  ls
+ 1689  scp nlp_a1.yml dell@vrl4.cse.iitd.ac.in:~/Desktop/NLP/Identify_Lang
+ 1690  ssh dell@vrl4.cse.iitd.ac.in
+ 1691  exit
+ 1692  pip show scikit-learn
+ 1693  conda list scikit-learn
+ 1694  bash run_model.sh train models/rf_100_2.pkl data/train.json random_forest
+ 1695  bash run_model.sh test models/rf_100_2.pkl data/valid_new.json output.txt
+ 1696  bash run_model.sh test models/rf_100_2.pkl data/valid.json output.txt
+ 1697  bash run_model.sh train models/rf_100_5.pkl data/train.json random_forest
+ 1698  bash run_model.sh test models/rf_100_2.pkl data/valid.json output.txt
+ 1699  bash run_model.sh test models/rf_100_5.pkl data/valid.json output.txt
+ 1700  bash run_model.sh test models/rf_100_5.pkl data/valid_new.json output.txt
+ 1701  bash run_model.sh train models/rf_10_inf_entr.pkl data/train.json random_forest
+ 1702  bash run_model.sh test models/rf_100_10_entr.pkl data/valid_new.json output.txt
+ 1703  bash run_model.sh test models/rf_100_10_entr.pkl data/valid.json output.txt
+ 1704  bash run_model.sh train models/rf_100_100_gini.pkl data/train.json random_forest
+ 1705  bash run_model.sh test models/rf_100_100_gini.pkl data/valid.json output.txt
+ 1706  bash run_model.sh test models/rf_100_100_gini.pkl data/valid_new.json output.txt
+ 1707  bash run_model.sh train models/rf_100_10_entr.pkl data/train.json random_forest
+ 1708  ssh dell@vrl4.cse.iitd.ac.in
+ 1709  exit
+ 1710  ssh dell@vrl4.cse.iitd.ac.in
+ 1711  exit
+ 1712  cd ..
+ 1713  cd Identify_Lang/
+ 1714  vim .gitattributes 
+ 1715  git lfs track data/valid_new.json
+ 1716  vim .gitattributes 
+ 1717  mkdir cs5200415
+ 1718  zip cs5200415/
+ 1719  sudo apt install zip
+ 1720  zip cs5200415/
+ 1721  ls
+ 1722  zip cs5200415 cs5200415.zip
+ 1723  zip -r cs5200415 cs5200415.zip
+ 1724  zip -r cs5200415.zip cs5200415
+ 1725  cd ../../../Downloads/
+ 1726  unzip cs5200415.zip 
+ 1727  /bin/python3 /home/abhinav/.vscode-server/extensions/ms-python.python-2024.0.1/pythonFiles/printEnvVariablesToFile.py /home/abhinav/.vscode-server/extensions/ms-python.python-2024.0.1/pythonFiles/deactivate/bash/envVars.txt
+ 1728  cd Dropbox/NLP/
+ 1729  cd Identify_Lang/
+ 1730  code .
+ 1731  cd ../../../Downloads/
+ 1732  zip cs5200415/
+ 1733  zip cs5200415.zip cs5200415
+ 1734  zip -r cs5200415.zip cs5200415
+ 1735  unzip cs5200415.zip 
+ 1736  cd
+ 1737  cd Dropbox/NLP/
+ 1738  cd Identify_Lang/
+ 1739  bash run_model.sh test mnt/C:\Users\abhinav\OneDrive - IIT Delhi\Sem 8 2024\COL772\A1 data/valid_new.json output.txt
+ 1740  bash run_model.sh test mnt/"C:\Users\abhinav\OneDrive - IIT Delhi\Sem 8 2024\COL772\A1\trained_model.pkl" data/valid_new.json output.txt
+ 1741  bash run_model.sh test mnt/"C:/Users/abhinav/OneDrive - IIT Delhi/Sem 8 2024/COL772/A1/trained_model.pkl" data/valid_new.json output.txt
+ 1742  bash run_model.sh test /mnt/"C:/Users/abhinav/OneDrive - IIT Delhi/Sem 8 2024/COL772/A1/trained_model.pkl" data/valid_new.json output.txt
+ 1743  bash run_model.sh test /mnt/"c/Users/abhinav/OneDrive - IIT Delhi/Sem 8 2024/COL772/A1/trained_model.pkl" data/valid_new.json output.txt
+ 1744  bash run_model.sh test /mnt/"c/Users/abhinav/OneDrive - IIT Delhi/Sem 8 2024/COL772/A1/trained_model_bigram.pkl" data/valid_new.json output.txt
+ 1745  bash run_model.sh test /mnt/"c/Users/abhinav/OneDrive - IIT Delhi/Sem 8 2024/COL772/A1/trained_model.pkl" data/valid_new.json output.txt
+ 1746  python /home/abhinav/.vscode-server/extensions/ms-python.python-2024.0.1/pythonFiles/printEnvVariablesToFile.py /home/abhinav/.vscode-server/extensions/ms-python.python-2024.0.1/pythonFiles/deactivate/bash/envVars.txt
+ 1747  ssh dell@vrl4.cse.iitd.ac.in
+ 1748  exit
+ 1749  ssh dell@vrl4.cse.iitd.ac.in
+ 1750  exit
+ 1751  cd 
+ 1752  ssh dell@vrl4.cse.iitd.ac.in
+ 1753  scp dell@vrl4.cse.iitd.ac.in:~/Desktop/Combined_copy/Agent/plots/mcts_exp_pendulum*.png Downloads/
+ 1754  exit
+ 1755  cd Downloads/
+ 1756  zip 2020CS50415/
+ 1757  ls
+ 1758  zip 2020CS50415.zip 2020CS50415/
+ 1759  zip -r 2020CS50415.zip 2020CS50415/
+ 1760  unzip 2020CS50415.zip 
+ 1761  unzip /mnt/"C:\Users\abhinav\OneDrive - IIT Delhi\Sem 8 2024\COL362\Assignment-2\2020CS50415.zip"
+ 1762  cd /mnt/"C:\Users\abhinav\OneDrive - IIT Delhi\Sem 8 2024\COL362\Assignment-2"
+ 1763  cd "/mnt/"
+ 1764  cd /mnt/"c\Users\abhinav\OneDrive - IIT Delhi\Sem 8 2024\COL362\Assignment-2"
+ 1765  cd /mnt/"/mnt/c/Users/"
+ 1766  unzip /mnt/c/Users/abhinav/OneDrive\ -\ IIT\ Delhi/
+ 1767  cd  /mnt/c/Users/abhinav/OneDrive\ -\ IIT\ Delhi/
+ 1768  ls
+ 1769  cd Sem\ 8\ 2024/COL362/Assignment-2/
+ 1770  pwd
+ 1771  cd
+ 1772  cd Downloads/
+ 1773  unzip /mnt/c/Users/abhinav/OneDrive - IIT Delhi/Sem 8 2024/COL362/Assignment-2/2020CS50415.zip
+ 1774  unzip "/mnt/c/Users/abhinav/OneDrive - IIT Delhi/Sem 8 2024/COL362/Assignment-2/2020CS50415.zip"
+ 1775  ssh dell@vrl4.cse.iitd.ac.in
+ 1776  exit
+ 1777  ssh dell@vrl4.cse.iitd.ac.in
+ 1778  exit
+ 1779  conda deactivate
+ 1780  conda create --name nlp_a2 python=3.10
+ 1781  conda update -n base -c defaults conda
+ 1782  conda --version
+ 1783  exit
+ 1784  conda --version
+ 1785  conda update -n base -c defaults conda
+ 1786  conda deactivate
+ 1787  cd /home/abhinav/miniconda3/conda-meta/
+ 1788  ls
+ 1789  vim pinned
+ 1790  cd
+ 1791  conda update -n base -c defaults conda -v
+ 1792  conda config --set ssl_verify false
+ 1793  conda update -n base -c defaults conda -v
+ 1794  conda config --set ssl_verify true
+ 1795  conda update -n base -c defaults conda -v
+ 1796  conda config --get number_channel_notices
+ 1797  conda config --show channels
+ 1798  cd miniconda3/
+ 1799  ls
+ 1800  cd conda
+ 1801  cd bin
+ 1802  l
+ 1803  cd ..
+ 1804  ls
+ 1805  conda notices
+ 1806  conda config --set number_channel_notices 0
+ 1807  conda update -n base -c defaults conda -v
+ 1808  conda --version
+ 1809  conda activate nlp_a2
+ 1810  conda install pytorch torchvision torchaudio -c pytorch
+ 1811  /bin/python2 /home/abhinav/.vscode-server/extensions/ms-python.python-2024.0.1/pythonFiles/printEnvVariablesToFile.py /home/abhinav/.vscode-server/extensions/ms-python.python-2024.0.1/pythonFiles/deactivate/bash/envVars.txt
+ 1812  cd Dropbox/NLP/
+ 1813  ls
+ 1814  git commit -a -m "Added assignment A2"
+ 1815  git push
+ 1816  du -sh
+ 1817  du -h 
+ 1818  du -sh Table_QnA/
+ 1819  du -sh Identify_Lang/
+ 1820  ls
+ 1821  cd Identify_Lang/
+ 1822  ks
+ 1823  ls
+ 1824  cd ..
+ 1825  git fetch
+ 1826  git pull
+ 1827  code .
+ 1828  git add Table_QnA/
+ 1829  du -h Table_QnA/
+ 1830  cd Table_QnA/
+ 1831  du -h
+ 1832  du -sh
+ 1833  du -sh *
+ 1834  git lfs add A2_train.jsonl
+ 1835  git-lfs add A2_train.jsonl
+ 1836  git-lfs --help
+ 1837  git lfs --help
+ 1838  mkdir data
+ 1839  ls
+ 1840  mv *.jsonl data/
+ 1841  ls
+ 1842  cd dat
+ 1843  cd data
+ 1844  ls
+ 1845  cd ..
+ 1846  git lfs track data*
+ 1847  ls
+ 1848  git lfs track data/*
+ 1849  cd ..
+ 1850  git add Table_QnA/
+ 1851  git commit -m "Initialized A2"
+ 1852  git push
+ 1853  ssh cs5200415@hpc.iitd.ac.in
+ 1854  conda activate nlp_a2
+ 1855  cd
+ 1856  conda install numpy
+ 1857  conda install anaconda::numpy
+ 1858  conda update -all
+ 1859  conda update -a
+ 1860  conda update -h
+ 1861  conda install anaconda::gensim
+ 1862  conda install anaconda::pandas
+ 1863  conda install conda-forge::transformers
+ 1864  conda install conda-forge::matplotlib
+ 1865  conda deactivaate
+ 1866  conda deactivate
+ 1867  conda activate nlp_a2
+ 1868  python model.py 
+ 1869  /bin/python /home/abhinav/.vscode-server/extensions/ms-python.python-2024.2.1/pythonFiles/printEnvVariablesToFile.py /home/abhinav/.vscode-server/extensions/ms-python.python-2024.2.1/pythonFiles/deactivate/bash/envVars.txt
+ 1870  conda deactivate
+ 1871  conda activate nlp_a2
+ 1872  conda list tokenizer
+ 1873  python model.py
+ 1874  cd Table_QnA/
+ 1875  python model.py
+ 1876  cd Dropbox/NLP/
+ 1877  ls
+ 1878  cd Table_QnA/
+ 1879  code .
+ 1880  conda deactivate
+ 1881  conda activate nlp_a2
+ 1882  code .
+ 1883  history
+ 1884  exit
+ 1885  cd Dropbox
+ 1886  cd NLP/
+ 1887  ls
+ 1888  cd ..
+ 1889  git clone https://github.com/google-research/tapas.git
+ 1890  cd tapas/
+ 1891  ls
+ 1892  code .
+ 1893  exit
+ 1894  java --version
+ 1895  java -version
+ 1896  conda deactivate
+ 1897  conda activate nlp_a2
+ 1898  /bin/python /home/abhinav/.vscode-server/extensions/ms-python.python-2024.2.1/pythonFiles/printEnvVariablesToFile.py /home/abhinav/.vscode-server/extensions/ms-python.python-2024.2.1/pythonFiles/deactivate/bash/envVars.txt
+ 1899  cd Dropbox/NLP/Table_QnA/
+ 1900  conda activate nlp_a2
+ 1901  code .
+ 1902  curl   -H 'Content-Type: application/json'   -d '{"contents":[{"parts":[{"text":"Write a story about a magic backpack"}]}]}'   -X POST https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyDAe8RHMBAMwqvy8Wzp1q8zWoTwe3K8P0M
+ 1903  exit
+ 1904  python
+ 1905  exit
+ 1906  /home/abhinav/miniconda3/envs/nlp_a2/bin/python
+ 1907  git push
+ 1908  git fetch
+ 1909  git config --list
+ 1910  git pull
+ 1911  ping github.com
+ 1912  sudo vim /etc/resolv.conf 
+ 1913  ping github.com
+ 1914  git fetch
+ 1915  git push
+ 1916  sudo service network-manager restart
+ 1917  git push
+ 1918  python
+ 1919  cd src/
+ 1920  python load_data.py 
+ 1921  /bin/python3 /home/abhinav/.vscode-server/extensions/ms-python.python-2024.2.1/pythonFiles/printEnvVariablesToFile.py /home/abhinav/.vscode-server/extensions/ms-python.python-2024.2.1/pythonFiles/deactivate/bash/envVars.txt
+ 1922  conda deactivate
+ 1923  conda activate nlp_a2
+ 1924  conda install anaconda::nltk
+ 1925  python
+ 1926  speedtest-cli
+ 1927  exit
+ 1928  speedtest-cli
+ 1929  exit
+ 1930  cd Dropbox/
+ 1931  cd NLP/
+ 1932  cd Table_QnA/
+ 1933  ls
+ 1934  code .
+ 1935  conda install anaconda::nltk
+ 1936  conda activate nlp_a2
+ 1937  conda install anaconda::nltk
+ 1938  conda deactivate
+ 1939  conda list nltk
+ 1940  conda remove --force nltk
+ 1941  python src/flatten.py 
+ 1942  conda activate nlp_a2
+ 1943  python src/flatten.py 
+ 1944  exit
+ 1945  python create_data.py 
+ 1946  python src/flatten.py 
+ 1947  speedtest-cli
+ 1948  sudo vim /etc/resolve.conf
+ 1949  cd /etc/
+ 1950  ls
+ 1951  vim resolv.conf 
+ 1952  sudo vim resolv.conf 
+ 1953  speedtest-cli
+ 1954  sudo vim resolv.conf 
+ 1955  speedtest-cli
+ 1956  time git status
+ 1957  speedtest-cli
+ 1958  sudo vim resolv.conf 
+ 1959  speedtest-cli
+ 1960  ping google.com
+ 1961  speedtest-cli
+ 1962  sudo vim resolv.conf 
+ 1963  speedtest-cli
+ 1964  ping google.com
+ 1965  time git status
+ 1966  cd
+ 1967  conda activate nlp_a1
+ 1968  python
+ 1969  conda deactivate
+ 1970  conda activate nlp_a2
+ 1971  cd Dropbox/NLP/Table_QnA/src/
+ 1972  python flatten.py 
+ 1973  ssh cs5200415@hpc.iitd.ac.in
+ 1974  sudo vim /etc/resolv.conf 
+ 1975  ssh cs5200415@hpc.iitd.ac.in
+ 1976  ssh cs5200415@gpu.hpc.iitd.ac.in
+ 1977  ssh cs5200415@hpc.iitd.ac.in
+ 1978  ssh dell@vrl4.cse.iitd.ac.in
+ 1979  code .
+ 1980  history
+ 1981  clear
+ 1982  history
+ 1983  cd data/a
+ 1984  cd data/
+ 1985  du -sh A2_val.jsonl 
+ 1986  du -sh A2_train.jsonl 
+ 1987  /bin/python3 /home/abhinav/.vscode-server/extensions/ms-python.python-2024.2.1/pythonFiles/printEnvVariablesToFile.py /home/abhinav/.vscode-server/extensions/ms-python.python-2024.2.1/pythonFiles/deactivate/bash/envVars.txt
+ 1988  uname
+ 1989  cd Dropbox/
+ 1990  cd NLP/
+ 1991  cd Table_QnA/
+ 1992  ls
+ 1993  code .
+ 1994  ssh cs5200415@gpu.hpc.iitd.ac.in
+ 1995  cd Dropbox/NLP/
+ 1996  cd Table_QnA/
+ 1997  ls
+ 1998  ssh cs5200415@hpc.iitd.ac.in
+ 1999  ls
+ 2000  git pull
+ 2001  speedtest-cli
+ 2002  cd ..
+ 2003  scp -r Table_QnA/ dell@vrl4.cse.iitd.ac.in:~/Desktop/NLP/
+ 2004  git config push.default
+ 2005  git config push.default current
+ 2006  git config push.default
+ 2007  history > history.txt
+ 2008  rm history.txt 
+ 2009  cd Table_QnA/
+ 2010  history > history.txt
