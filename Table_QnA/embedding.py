@@ -7,41 +7,51 @@ import pandas as pd
 from torch import nn, tensor
 import gensim.downloader as api
 from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
 
 
 NUM_NEG_ROWS = 4
 WORD2VEC = api.load("word2vec-google-news-300")
 
 nltk.download('punkt')
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-print(device)
+nltk.download('stopwords')
+# device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+device = 'cpu'
+stop_words = set(stopwords.words('english'))
 
 
 class Custom_Embedding(nn.Module):
     def __init__(self, max_seq_len, token_size=300):
         super(Custom_Embedding, self).__init__()
         self.max_seq_len = max_seq_len
-        self.cls = nn.Parameter(torch.randn(token_size, dtype=torch.float32))
-        self.sep = nn.Parameter(torch.randn(token_size, dtype=torch.float32))
-        self.seg_id = nn.Parameter(torch.randn(2, token_size, dtype=torch.float32))
-        self.col_id = nn.Parameter(torch.randn(max_seq_len, token_size, dtype=torch.float32))
-        self.rank_id = nn.Parameter(torch.randn(max_seq_len, token_size, dtype=torch.float32))
-        self.pos = nn.Parameter(torch.randn(max_seq_len, token_size, dtype=torch.float32))
-        self.row_id = nn.Parameter(torch.randn(max_seq_len, token_size, dtype=torch.float32))
-        self.pad = nn.Parameter(torch.randn(token_size, dtype=torch.float32))
+        self.cls = nn.Parameter(self.normalize(torch.rand(token_size, dtype=torch.float32).to(device)))
+        self.sep = nn.Parameter(self.normalize(torch.rand(token_size, dtype=torch.float32).to(device)))
+        self.seg_id = nn.Parameter(self.normalize(torch.rand(2, token_size, dtype=torch.float32).to(device)))
+        self.col_id = nn.Parameter(self.normalize(torch.rand(max_seq_len, token_size, dtype=torch.float32).to(device)))
+        # self.rank_id = nn.Parameter(torch.randn(max_seq_len, token_size, dtype=torch.float32)).to(device)
+        self.pos = nn.Parameter(self.normalize(torch.rand(max_seq_len, token_size, dtype=torch.float32).to(device)))
+        self.row_id = nn.Parameter(self.normalize(torch.rand(max_seq_len, token_size, dtype=torch.float32).to(device)))
+        self.pad = nn.Parameter(self.normalize(torch.rand(token_size, dtype=torch.float32).to(device)))
+
+    def tokenize_words(self, sentence):
+        tokens = word_tokenize(sentence.lower())
+        return [word for word in tokens if word.lower() not in stop_words]
 
     def str_to_vec(self, str, dim=300):
+        # hash_array = self.unk
         byte_repr = str.encode()
         hash_value = hashlib.sha256(byte_repr).digest()
         hash_array = np.frombuffer(hash_value, dtype=np.uint8)[:dim]
         if len(hash_array) < dim:
             hash_array = np.pad(hash_array, (0, dim - hash_array.shape[0]), 'wrap')
-        hash_array = hash_array / 255.0
+        hash_array = hash_array / np.linalg.norm(hash_array, axis=0, keepdims=True)
         return hash_array
 
     def embed(self, token):
         if token in WORD2VEC.key_to_index:
-            return WORD2VEC[token]
+            word_vec = WORD2VEC[token]
+            word_vec = word_vec / np.linalg.norm(word_vec, axis=0, keepdims=True)
+            return word_vec
         else:
             return self.str_to_vec(token)
 
@@ -49,18 +59,21 @@ class Custom_Embedding(nn.Module):
         needed_cols = []
         col_id = 0
         for header in col_header:
-            tokens = word_tokenize(header.lower())
+            tokens = self.tokenize_words(header.lower())
             for token in tokens:
                 if token in tokenized_ques:
                     needed_cols.append(col_id)
                     break
             col_id += 1
 
+    def normalize(self, tensor, dim=0):
+        return tensor / torch.norm(tensor, dim=dim, keepdim=True)
+
     def flatten_1(self, data_file):
         sampled_data = []
         data = pd.read_json(data_file, lines=True)
         for data_point, line in data.iterrows():
-            question = word_tokenize(line['question'].lower())
+            question = self.tokenize_words(line['question'].lower())
             qid = line['qid']
             col_header = line['table']['cols']
             rows = line['table']['rows']
@@ -76,28 +89,28 @@ class Custom_Embedding(nn.Module):
             label_cell = label_cell[sorted_index]
 
             # Class Token
-            cls_token = self.cls + self.pos[0] + self.seg_id[0] + self.col_id[0] + self.row_id[0] + self.rank_id[0]
+            cls_token = self.cls + self.pos[0] + self.seg_id[0] + self.col_id[0] + self.row_id[0]
             all_tokens = [cls_token]
 
             # Question Token
-            # all_tokens = torch.cat(all_tokens, torch.stack([tensor(self.embed(ques_tok), dtype=torch.float32) + self.pos[i+1] + self.seg_id[0] + self.col_id[0] + self.row_id[0] + self.rank_id[0] for i, ques_tok in enumerate(question)]))
+            # all_tokens = torch.cat(all_tokens, torch.stack([tensor(self.embed(ques_tok), dtype=torch.float32) + self.pos[i+1] + self.seg_id[0] + self.col_id[0] + self.row_id[0] for i, ques_tok in enumerate(question)]))
             # index = all_tokens.shape[0]
             index = 1
             for ques_tok in question:
-                ques_tok = tensor(self.embed(ques_tok), dtype=torch.float32) + self.pos[index] + self.seg_id[0] + self.col_id[0] + self.row_id[0] + self.rank_id[0]
+                ques_tok = tensor(self.embed(ques_tok).to(device), dtype=torch.float32) + self.pos[index] + self.seg_id[0] + self.col_id[0] + self.row_id[0]
                 index += 1
                 all_tokens.append(ques_tok)
 
             # Separator Token
-            sep_token = self.sep + self.pos[index] + self.seg_id[0] + self.col_id[0] + self.row_id[0] + self.rank_id[0]
+            sep_token = self.sep + self.pos[index] + self.seg_id[0] + self.col_id[0] + self.row_id[0]
             all_tokens.append(sep_token)
 
             # Table's column header Token
             col_cnt = 1
             for column in col_header:
-                col_tok = word_tokenize(column.lower())
+                col_tok = self.tokenize_words(column.lower())
                 for tok in col_tok:
-                    tok = tensor(self.embed(tok), dtype=torch.float32) + self.pos[index] + self.seg_id[1] + self.col_id[col_cnt] + self.row_id[0] + self.rank_id[0]
+                    tok = tensor(self.embed(tok), dtype=torch.float32).to(device) + self.pos[index] + self.seg_id[1] + self.col_id[col_cnt] + self.row_id[0]
                     index += 1
                     all_tokens.append(tok)
                 col_cnt += 1
@@ -122,9 +135,9 @@ class Custom_Embedding(nn.Module):
                 row = rows[row_id]
                 col_cnt = 1
                 for cell in row:
-                    cell_tok = word_tokenize(cell.lower())
+                    cell_tok = self.tokenize_words(cell.lower())
                     for tok in cell_tok:
-                        tok = tensor(self.embed(tok), dtype=torch.float32) + self.pos[index] + self.seg_id[1] + self.col_id[col_cnt] + self.row_id[row_cnt] + self.rank_id[0]
+                        tok = tensor(self.embed(tok), dtype=torch.float32).to(device) + self.pos[index] + self.seg_id[1] + self.col_id[col_cnt] + self.row_id[row_cnt]
                         index += 1
                         all_tokens.append(tok)
                     col_cnt += 1
@@ -138,9 +151,9 @@ class Custom_Embedding(nn.Module):
                 col_cnt = 0
                 temp_tokens = []
                 for cell in row:
-                    cell_tok = word_tokenize(cell.lower())
+                    cell_tok = self.tokenize_words(cell.lower())
                     for tok in cell_tok:
-                        tok = tensor(self.embed(tok), dtype=torch.float32) + self.pos[index] + self.seg_id[1] + self.col_id[col_cnt] + self.row_id[row_cnt] + self.rank_id[0]
+                        tok = tensor(self.embed(tok), dtype=torch.float32).to(device) + self.pos[index] + self.seg_id[1] + self.col_id[col_cnt] + self.row_id[row_cnt]
                         index += 1
                         if index >= self.max_seq_len:
                             break
@@ -167,7 +180,7 @@ class Custom_Embedding(nn.Module):
 
             # Padding Token
             if index < self.max_seq_len:
-                pad_token = self.pad + self.pos[index] + self.seg_id[0] + self.col_id[0] + self.row_id[0] + self.rank_id[0]
+                pad_token = self.pad + self.pos[index] + self.seg_id[0] + self.col_id[0] + self.row_id[0]
                 while index < self.max_seq_len:
                     all_tokens.append(pad_token)
                     index += 1
@@ -182,7 +195,7 @@ class Custom_Embedding(nn.Module):
     def flatten_2(self, data, tar):
         sampled_data = []
         for data_point, line in data.iterrows():
-            question = word_tokenize(line['question'].lower())
+            question = self.tokenize_words(line['question'].lower())
             qid = line['qid']
             col_header = line['table']['cols']
             rows = line['table']['rows']
@@ -199,30 +212,30 @@ class Custom_Embedding(nn.Module):
                 label_cell = label_cell[sorted_index]
 
             # Class Token
-            cls_token = self.cls + self.pos[0] + self.seg_id[0] + self.col_id[0] + self.row_id[0] + self.rank_id[0]
+            cls_token = self.cls + self.pos[0] + self.seg_id[0] + self.col_id[0] + self.row_id[0]
             # all_tokens = [cls_token]
             all_tokens = cls_token.unsqueeze(0)
 
             # Question Token
-            all_tokens = torch.cat((all_tokens, torch.stack([tensor(self.embed(ques_tok), dtype=torch.float32) + self.pos[i+1] + self.seg_id[0] + self.col_id[0] + self.row_id[0] + self.rank_id[0] for i, ques_tok in enumerate(question)])), dim=0)
+            all_tokens = torch.cat((all_tokens, torch.stack([tensor(self.embed(ques_tok), dtype=torch.float32).to(device) + self.pos[i+1] + self.seg_id[0] + self.col_id[0] + self.row_id[0] for i, ques_tok in enumerate(question)])), dim=0)
             index = all_tokens.shape[0]
             
             # index = 1
             # for ques_tok in question:
-            #     ques_tok = tensor(self.embed(ques_tok), dtype=torch.float32) + self.pos[index] + self.seg_id[0] + self.col_id[0] + self.row_id[0] + self.rank_id[0]
+            #     ques_tok = tensor(self.embed(ques_tok), dtype=torch.float32) + self.pos[index] + self.seg_id[0] + self.col_id[0] + self.row_id[0]
             #     index += 1
             #     all_tokens.append(ques_tok)
 
             # Separator Token
-            sep_token = self.sep + self.pos[index] + self.seg_id[0] + self.col_id[0] + self.row_id[0] + self.rank_id[0]
+            sep_token = self.sep + self.pos[index] + self.seg_id[0] + self.col_id[0] + self.row_id[0]
             # all_tokens.append(sep_token)
             all_tokens = torch.cat((all_tokens, sep_token.unsqueeze(0)), dim=0)
             index += 1
 
             # # Adding column header tokens
-            # col_tokens = [word_tokenize(col.lower()) for col in col_header]
+            # col_tokens = [self.tokenize_words(col.lower()) for col in col_header]
             # col_tokens = [[tensor(self.embed(tok), dtype=torch.float32) for tok in tokens] for tokens in col_tokens]
-            # all_tokens = torch.cat((all_tokens, torch.stack([tok + self.pos[index + i] + self.seg_id[1] + self.col_id[i+1] + self.row_id[0] + self.rank_id[0] for i, tokens in enumerate(col_tokens) for j, tok in enumerate(tokens)])), dim=0)
+            # all_tokens = torch.cat((all_tokens, torch.stack([tok + self.pos[index + i] + self.seg_id[1] + self.col_id[i+1] + self.row_id[0] for i, tokens in enumerate(col_tokens) for j, tok in enumerate(tokens)])), dim=0)
 
             # Table's column header Token
 
@@ -235,9 +248,9 @@ class Custom_Embedding(nn.Module):
             col_cnt = 1
             temp_tokens = []
             for column in col_header:
-                col_tok = word_tokenize(column.lower())
+                col_tok = self.tokenize_words(column.lower())
                 for tok in col_tok:
-                    tok = tensor(self.embed(tok), dtype=torch.float32) + self.pos[index] + self.seg_id[1] + self.col_id[col_cnt] + self.row_id[0] + self.rank_id[0]
+                    tok = tensor(self.embed(tok), dtype=torch.float32).to(device) + self.pos[index] + self.seg_id[1] + self.col_id[col_cnt] + self.row_id[0]
                     if tar and col_cnt == correct_col_ind + 1:
                         correct_head_ind.append(index)
                     index += 1
@@ -272,11 +285,12 @@ class Custom_Embedding(nn.Module):
                         row = rows[row_id]
                         col_cnt = 0
                         for cell in row:
-                            cell_tok = word_tokenize(cell.lower())
+                            cell_tok = self.tokenize_words(cell.lower())
                             embedding = np.zeros(300)
                             for tok in cell_tok:
                                 embedding += self.embed(tok)
-                            tok = tensor(embedding, dtype=torch.float32) + self.pos[loc_index] + self.seg_id[1] + self.col_id[col_cnt] + self.row_id[row_cnt] + self.rank_id[0]
+                            embedding = embedding / np.linalg.norm(embedding, axis=0, keepdims=True)
+                            tok = tensor(embedding, dtype=torch.float32).to(device) + self.pos[loc_index] + self.seg_id[1] + self.col_id[col_cnt] + self.row_id[row_cnt]
                             loc_index += 1
                             temp_tokens.append(tok)
                             col_cnt += 1
@@ -291,11 +305,12 @@ class Custom_Embedding(nn.Module):
                     col_cnt = 1
                     temp_tokens = []
                     for cell in row:
-                        cell_tok = word_tokenize(cell.lower())
+                        cell_tok = self.tokenize_words(cell.lower())
                         embedding = np.zeros(300)
                         for tok in cell_tok:
                             embedding += self.embed(tok)
-                        tok = tensor(embedding, dtype=torch.float32) + self.pos[loc_index] + self.seg_id[1] + self.col_id[col_cnt] + self.row_id[row_cnt] + self.rank_id[0]
+                        embedding = embedding / np.linalg.norm(embedding, axis=0, keepdims=True)
+                        tok = tensor(embedding, dtype=torch.float32).to(device) + self.pos[loc_index] + self.seg_id[1] + self.col_id[col_cnt] + self.row_id[row_cnt]
                         if col_cnt == correct_col_ind + 1:
                             correct_token_ind = loc_index
                         loc_index += 1
@@ -311,11 +326,12 @@ class Custom_Embedding(nn.Module):
                         row = rows[row_id]
                         col_cnt = 0
                         for cell in row:
-                            cell_tok = word_tokenize(cell.lower())
+                            cell_tok = self.tokenize_words(cell.lower())
                             embedding = np.zeros(300)
                             for tok in cell_tok:
                                 embedding += self.embed(tok)
-                            tok = tensor(embedding, dtype=torch.float32) + self.pos[loc_index] + self.seg_id[1] + self.col_id[col_cnt] + self.row_id[row_cnt] + self.rank_id[0]
+                            embedding = embedding / np.linalg.norm(embedding, axis=0, keepdims=True)
+                            tok = tensor(embedding, dtype=torch.float32).to(device) + self.pos[loc_index] + self.seg_id[1] + self.col_id[col_cnt] + self.row_id[row_cnt]
                             loc_index += 1
                             temp_tokens.append(tok)
                             col_cnt += 1
@@ -323,10 +339,10 @@ class Custom_Embedding(nn.Module):
                     if len(temp_tokens) > 0:
                         loc_tokens = torch.cat((loc_tokens, torch.stack(temp_tokens)), dim=0)
 
-                    target = torch.zeros(self.max_seq_len)
-                    target[correct_token_ind] = 1
+                    target = torch.zeros(self.max_seq_len, dtype=torch.float32).to(device)
+                    target[correct_token_ind] = 1.0
                     for ind in correct_head_ind:
-                        target[ind] = 1
+                        target[ind] = 1.0
 
                     # print(loc_index)
 
@@ -334,10 +350,12 @@ class Custom_Embedding(nn.Module):
                     if loc_index < self.max_seq_len:
                         num_pad_tokens = self.max_seq_len - loc_index
                         pad_tensor = self.pad.unsqueeze(0).repeat((num_pad_tokens, 1))
-                        loc_tokens = torch.cat((loc_tokens, pad_tensor), dim=0)
+                        loc_tokens = torch.cat((loc_tokens, pad_tensor), dim=0).to(device)
                         # while loc_index < self.max_seq_len:
                         #     loc_tokens.append(pad_token)
                         #     loc_index += 1
+
+                    loc_tokens = self.normalize(loc_tokens, dim=1)
 
                     # mask = torch.tensor((loc_tokens == self.pad).all(dim=1).unsqueeze(1).unsqueeze(2))
                     mask = (loc_tokens == self.pad).all(dim=1)
@@ -363,11 +381,12 @@ class Custom_Embedding(nn.Module):
                 for row in sampled_rows:
                     col_cnt = 0
                     for cell in row:
-                        cell_tok = word_tokenize(cell.lower())
+                        cell_tok = self.tokenize_words(cell.lower())
                         embedding = np.zeros(300)
                         for tok in cell_tok:
                             embedding += self.embed(tok)
-                        tok = tensor(embedding, dtype=torch.float32) + self.pos[index] + self.seg_id[1] + self.col_id[col_cnt] + self.row_id[row_cnt] + self.rank_id[0]
+                        embedding = embedding / np.linalg.norm(embedding, axis=0, keepdims=True)
+                        tok = tensor(embedding, dtype=torch.float32) + self.pos[index] + self.seg_id[1] + self.col_id[col_cnt] + self.row_id[row_cnt]
                         index += 1
                         temp_tokens.append(tok)
                         col_cnt += 1
@@ -383,6 +402,8 @@ class Custom_Embedding(nn.Module):
                     # while index < self.max_seq_len:
                     #     all_tokens.append(pad_token)
                     #     index += 1
+
+                all_tokens = self.normalize(all_tokens, dim=1)
 
                 mask = (all_tokens == self.pad).all(dim=1)
                 # print(mask)
@@ -406,21 +427,192 @@ class Custom_Embedding(nn.Module):
         # print(df)
         # print(df['mask'])
         return df
-    
+
+    def flatten_col_pred(self, data, tar):
+        sampled_data = []
+        for data_point, line in data.iterrows():
+            question = self.tokenize_words(line['question'].lower())
+            qid = line['qid']
+            col_header = line['table']['cols']
+            if tar:
+                label_col = line['label_col']
+
+            # Class Token
+            cls_token = self.cls + self.pos[0] + self.seg_id[0] + self.col_id[0] + self.row_id[0]
+            all_tokens = cls_token.unsqueeze(0)
+
+            # Question Token
+            all_tokens = torch.cat((all_tokens, torch.stack([tensor(self.embed(ques_tok), dtype=torch.float32).to(device) + self.pos[i+1] + self.seg_id[0] + self.col_id[0] + self.row_id[0] for i, ques_tok in enumerate(question)])), dim=0)
+            index = all_tokens.shape[0]
+
+            # Separator Token
+            sep_token = self.sep + self.pos[index] + self.seg_id[0] + self.col_id[0] + self.row_id[0]
+            all_tokens = torch.cat((all_tokens, sep_token.unsqueeze(0)), dim=0)
+            index += 1
+
+            # Table's column header Token
+
+            # selected_cols = self.select_cols(question, col_header)
+            # col_header = [col_header[i] for i in selected_cols]
+
+            col_to_indices = []
+            index_to_col = np.zeros(index, dtype=np.int32)
+
+            if tar:
+                correct_col_ind = col_header.index(label_col[0])
+                correct_head_ind = []
+            col_cnt = 1
+            temp_tokens = []
+            for column in col_header:
+                col_tok = self.tokenize_words(column.lower())
+                this_col_ind = []
+                for tok in col_tok:
+                    tok = tensor(self.embed(tok), dtype=torch.float32).to(device) + self.pos[index] + self.seg_id[1] + self.col_id[col_cnt] + self.row_id[0]
+                    if tar and col_cnt == correct_col_ind + 1:
+                        correct_head_ind.append(index)
+                    np.append(index_to_col, col_cnt)
+                    this_col_ind.append(index)
+                    index += 1
+                    temp_tokens.append(tok)
+                col_to_indices.append(this_col_ind)
+                col_cnt += 1
+            all_tokens = torch.cat((all_tokens, torch.stack(temp_tokens)), dim=0)
+            
+            # print(data_point, ": Necessary token count:", index, end=', ')
+
+            # print(index)
+
+            # Padding Token
+            if index < self.max_seq_len:
+                num_pad_tokens = self.max_seq_len - index
+                pad_tensor = self.pad.unsqueeze(0).repeat((num_pad_tokens, 1))
+                all_tokens = torch.cat((all_tokens, pad_tensor), dim=0).to(device)
+
+            # all_tokens = self.normalize(all_tokens, dim=1)
+
+            mask = (all_tokens == self.pad).all(dim=1)
+            # print(mask)
+
+            flat_data = {
+                'qid': qid,
+                'index': index,
+                'mask': mask,
+                'tokens': all_tokens,
+                'col_to_indices': col_to_indices,
+                'index_to_col': index_to_col,
+                'col_header': col_header
+            }
+
+            if tar:
+                target = torch.zeros(self.max_seq_len, dtype=torch.float32).to(device)
+                col_level_tar = torch.zeros(len(col_header), dtype=torch.float32).to(device)
+                col_level_tar[correct_col_ind] = 1.0
+                for ind in correct_head_ind:
+                    target[ind] = 1.0
+                flat_data['target'] = target
+                flat_data['col_level_target'] = col_level_tar
+
+            sampled_data.append(flat_data)
+
+        df = pd.DataFrame(sampled_data)
+        return df
+
+    def separated_col_pred(self, data, tar):
+        sampled_data = []
+        for data_point, line in data.iterrows():
+            question = self.tokenize_words(line['question'].lower())
+            qid = line['qid']
+            col_header = line['table']['cols']
+            if tar:
+                label_col = line['label_col']
+
+            # Class Token
+            cls_token = self.cls + self.pos[0]
+            all_tokens = cls_token.unsqueeze(0)
+
+            # Question Token
+            all_tokens = torch.cat((all_tokens, torch.stack([tensor(self.embed(ques_tok), dtype=torch.float32).to(device) + self.pos[i+1] for i, ques_tok in enumerate(question)])), dim=0)
+            index = all_tokens.shape[0]
+
+            # Separator Token
+            sep_token = self.sep + self.pos[index]
+            all_tokens = torch.cat((all_tokens, sep_token.unsqueeze(0)), dim=0)
+            index += 1
+
+            # Table's column header Token
+
+            # selected_cols = self.select_cols(question, col_header)
+            # col_header = [col_header[i] for i in selected_cols]
+
+            col_to_indices = []
+            index_to_col = np.zeros(index, dtype=np.int32)
+
+            if tar:
+                correct_col_ind = col_header.index(label_col[0])
+                correct_head_ind = []
+            col_cnt = 1
+            temp_tokens = []
+            for column in col_header:
+                col_tok = self.tokenize_words(column.lower())
+                this_col_ind = []
+                for tok in col_tok:
+                    tok = tensor(self.embed(tok), dtype=torch.float32).to(device) + self.pos[index]
+                    if tar and col_cnt == correct_col_ind + 1:
+                        correct_head_ind.append(index)
+                    np.append(index_to_col, col_cnt)
+                    this_col_ind.append(index)
+                    index += 1
+                    temp_tokens.append(tok)
+                col_to_indices.append(this_col_ind)
+                col_cnt += 1
+                temp_tokens.append(self.sep + self.pos[index])
+                index += 1
+            all_tokens = torch.cat((all_tokens, torch.stack(temp_tokens)), dim=0)
+            
+            # print(data_point, ": Necessary token count:", index, end=', ')
+
+            # print(index)
+
+            # Padding Token
+            if index < self.max_seq_len:
+                num_pad_tokens = self.max_seq_len - index
+                pad_tensor = self.pad.unsqueeze(0).repeat((num_pad_tokens, 1))
+                all_tokens = torch.cat((all_tokens, pad_tensor), dim=0).to(device)
+
+            all_tokens = self.normalize(all_tokens, dim=1)
+
+            mask = (all_tokens == self.pad).all(dim=1)
+            # print(mask)
+
+            flat_data = {
+                'qid': qid,
+                'index': index,
+                'mask': mask,
+                'tokens': all_tokens,
+                'col_to_indices': col_to_indices,
+                'index_to_col': index_to_col,
+                'col_header': col_header
+            }
+
+            if tar:
+                target = torch.zeros(self.max_seq_len, dtype=torch.float32).to(device)
+                col_level_tar = torch.zeros(len(col_header), dtype=torch.float32).to(device)
+                col_level_tar[correct_col_ind] = 1.0
+                for ind in correct_head_ind:
+                    target[ind] = 1.0
+                flat_data['target'] = target
+                flat_data['col_level_target'] = col_level_tar
+
+            sampled_data.append(flat_data)
+
+        df = pd.DataFrame(sampled_data)
+        return df
+
     def forward(self, data, target=False):
-        return self.flatten_2(data, target)
+        return self.separated_col_pred(data, target)
 
 
 if __name__=='__main__':
     flattener = Custom_Embedding(256, 300)
     data = pd.read_json("data/A2_temp.jsonl", lines=True)
-    # print(type(data))
-    # num_batches = (len(data) + 32 - 1) // 32
-    # batches = []
-    # for i in range(num_batches):
-    #     start_idx = i * 32
-    #     end_idx = min((i + 1) * 32, len(data))
-    #     batch_df = data.iloc[start_idx:end_idx]
-    #     batches.append(batch_df)
-    # print(type(batches[0]))
     flattener.forward(data, target=False)
