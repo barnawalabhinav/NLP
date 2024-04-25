@@ -40,8 +40,8 @@ class Summarizer:
     def train(self, data_dir, save_dir):
 
         print("running_train")
-        print(data_dir)
-        print(save_dir)
+        print("Data Dir: " + data_dir)
+        print("Save Dir: " + save_dir)
 
         data_collator = DataCollatorForSeq2Seq(tokenizer=self.tokenizer, model=self.model_name)
         peft_config = LoraConfig(task_mode=TaskType.SEQ_2_SEQ_LM, inference_mode=False, r=8, lora_alpha=32, lora_dropout=0.1)
@@ -84,18 +84,20 @@ class Summarizer:
             output_dir=save_dir,
             logging_dir=save_dir,
             evaluation_strategy="epoch",
-            learning_rate=1e-4,
-            per_device_train_batch_size=4,
-            per_device_eval_batch_size=8,
+            learning_rate=1e-3,
+            per_device_train_batch_size=8,
+            per_device_eval_batch_size=16,
             weight_decay=0.01,
             save_total_limit=3,
-            num_train_epochs=6,
+            num_train_epochs=10,
             predict_with_generate=True,
             fp16=True,
             push_to_hub=False,
             report_to="none",
             save_strategy="epoch",
             load_best_model_at_end=True,
+            metric_for_best_model="rouge1",
+            greater_is_better=True,
             generation_max_length=512
         )
 
@@ -119,37 +121,32 @@ class Summarizer:
     def predict(self, data_dir, model_dir, save_dir):
         
         print("running_test")
-        print(data_dir)
-        print(model_dir)
-        print(save_dir)
+        print("Data Dir: " + data_dir)
+        print("Model Dir: " + model_dir)
+        print("Save Dir: " + save_dir)
 
         device = "cuda" if torch.cuda.is_available() else "cpu"    
         summarizer = pipeline("summarization", model=model_dir, tokenizer=self.model_name, truncation=True, device=device)
 
         def test(test_path, output_path):
             df = pd.read_json(test_path, lines=True)
-            # df = pd.DataFrame(df.article)
             dataset = Dataset.from_pandas(df)
             inputs = dataset["article"]
 
-            # BATCH_SIZE = 100
             with open(output_path, "w") as f:
                 summaries = summarizer(inputs, max_length=512, min_length=256, do_sample=False)
                 for summary in summaries:
                     f.write(summary['summary_text'] + "\n")
-                # for input in inputs:
-                #     summary = summarizer(input, max_length=512, min_length=256, do_sample=False)[0]['summary_text']
-                # for i in range(0, len(inputs), BATCH_SIZE):
-                #     last_ind = min(len(inputs), i + BATCH_SIZE)
-                #     summaries = summarizer(inputs[i:last_ind], max_length=512, min_length=256, do_sample=False)
-                #     for summary in summaries:
-                #         f.write(summary['summary_text'] + "\n")
 
         data_path = os.path.join(data_dir, "eLife_test.jsonl")
         output_path = os.path.join(save_dir, "elife.txt")
+        # data_path = os.path.join(data_dir, "eLife_val.jsonl")
+        # output_path = os.path.join(save_dir, "elife_val.txt")
         test(data_path, output_path)
         data_path = os.path.join(data_dir, "PLOS_test.jsonl")
         output_path = os.path.join(save_dir, "plos.txt")
+        # data_path = os.path.join(data_dir, "PLOS_val.jsonl")
+        # output_path = os.path.join(save_dir, "plos_val.txt")
         test(data_path, output_path)
 
 
